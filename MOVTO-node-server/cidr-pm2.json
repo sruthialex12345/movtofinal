@@ -1,0 +1,11 @@
+{
+    "apps": [
+        {
+            "name": "cidr",
+            "script": "npm",
+            "args" : "start",
+            "error_file" : "./cidr-err.log",
+    	    "out_file" : "./cidr-out.log"
+        }
+    ]
+}

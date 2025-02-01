@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "515482487496",
+    "firebase_url": "https://circular-drive.firebaseio.com",
+    "project_id": "circular-drive",
+    "storage_bucket": "circular-drive.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:515482487496:android:49a711155f58ef231c73fd",
+        "android_client_info": {
+          "package_name": "com.cidr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "515482487496-2nab3vknpqeugj241g1b6rage70r9oc7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkBW-LdMkr2V44RZjkVe9o_nCKaVave78"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "515482487496-2nab3vknpqeugj241g1b6rage70r9oc7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "515482487496-71jgapjlcnjpa50d8ltk6s51j7qc9sjk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cidr"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

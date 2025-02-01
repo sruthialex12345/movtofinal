@@ -1,0 +1,1 @@
+{"version":3,"sources":["server/constants/trip-type.js"],"names":["TRIP_DYNAMIC","TRIP_DIRECT_STATIC","TRIP_CIRCULAR_STATIC"],"mappings":";;;;;AAAO,IAAMA,sCAAe,cAArB;AACA,IAAMC,kDAAqB,mBAA3B;AACA,IAAMC,sDAAuB,qBAA7B","file":"trip-type.js","sourceRoot":"../../../../.."}

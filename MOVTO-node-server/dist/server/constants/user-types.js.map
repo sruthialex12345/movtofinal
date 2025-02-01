@@ -1,0 +1,1 @@
+{"version":3,"sources":["server/constants/user-types.js"],"names":["USER_TYPE_RIDER","USER_TYPE_DRIVER","USER_TYPE_ADMIN","USER_TYPE_SUPER_ADMIN","USER_TYPE_ANONYMOUS"],"mappings":";;;;;AAAO,IAAMA,4CAAkB,OAAxB;AACA,IAAMC,8CAAmB,QAAzB;AACA,IAAMC,4CAAkB,OAAxB;AACA,IAAMC,wDAAwB,YAA9B;AACA,IAAMC,oDAAsB,WAA5B","file":"user-types.js","sourceRoot":"../../../../.."}

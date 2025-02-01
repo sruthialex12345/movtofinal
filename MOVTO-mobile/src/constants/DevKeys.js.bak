@@ -1,0 +1,12 @@
+/*
+ * @file: i18n.js
+ * @description: App i18n Localization
+
+ * */
+"use strict";
+const DevKeys = {
+  GoogleAPIKey: "AIzaSyAnOIeq4UUKE_T1RRpXCGY_H3o88Aa_mNg",
+  MapTimer: 20000
+};
+
+export default DevKeys;

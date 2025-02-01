@@ -1,0 +1,4 @@
+# Referenced at C:\Users\Sruthi.Alex.Nustartz\Movto-working\CIDR-Repo\cidr-mobile\android\app\build\intermediates\merged_manifests\debug\arm64-v8a\AndroidManifest.xml:59
+-keep class androidx.core.app.CoreComponentFactory { <init>(); }
+# Referenced at C:\Users\Sruthi.Alex.Nustartz\Movto-working\CIDR-Repo\cidr-mobile\android\app\build\intermediates\merged_manifests\debug\arm64-v8a\AndroidManifest.xml:59
+-keep class com.cidr.MainApplication { <init>(); }

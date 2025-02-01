@@ -1,0 +1,10 @@
+#Wed Jan 29 15:47:55 IST 2025
+path.2=classes3.dex
+path.1=classes2.dex
+path.0=classes.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
+base.2=C\:\\Users\\Sruthi.Alex.Nustartz\\Movto-working\\CIDR-Repo\\cidr-mobile\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+base.1=C\:\\Users\\Sruthi.Alex.Nustartz\\Movto-working\\CIDR-Repo\\cidr-mobile\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+base.0=C\:\\Users\\Sruthi.Alex.Nustartz\\Movto-working\\CIDR-Repo\\cidr-mobile\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "496731809531",
+    "firebase_url": "https://cidr-220411.firebaseio.com",
+    "project_id": "cidr-220411",
+    "storage_bucket": "cidr-220411.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:496731809531:android:14d35ef07942f4a0",
+        "android_client_info": {
+          "package_name": "com.cidr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "496731809531-105i5q6adomjmbd2tn8c62pvh7au9ndj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBivQaAKx6pEV_2Xe_wdw9vRzjX90o9-Fg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

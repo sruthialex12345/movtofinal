@@ -1,0 +1,1 @@
+{"version":3,"sources":["server/constants/terminal-type.js"],"names":["TRIP_TERMINAL","TRIP_START_TERMINAL","TRIP_END_TERMINAL"],"mappings":";;;;;AAAO,IAAMA,wCAAgB,UAAtB;AACA,IAAMC,oDAAsB,eAA5B;AACA,IAAMC,gDAAoB,aAA1B","file":"terminal-type.js","sourceRoot":"../../../../.."}
