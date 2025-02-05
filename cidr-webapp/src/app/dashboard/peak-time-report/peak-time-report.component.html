@@ -1,0 +1,86 @@
+<!-- ============================================================== -->
+<!-- Info box -->
+<!-- ============================================================== -->
+<div *ngIf="(userDetails && userDetails.userType=='admin')">
+    <div class="row page-titles">
+        <div class="col-md-3">
+            <a class="btn btn-success" aria-expanded="false" [routerLink]="['/dashboard/reports/noofrequest']">
+              <i class="ti-file"></i>&nbsp;
+              <span class="hide-menu">No of Request</span>
+          </a>
+        </div>
+        <div class="col-md-3 mg-1">
+            <a class="btn btn-success" aria-expanded="false" [routerLink]="['/dashboard/reports/noofridersserved']">
+              <i class="ti-file"></i>&nbsp;
+              <span class="hide-menu">No of Riders Particular Driver</span>
+          </a>
+        </div>
+        <div class="col-md-3 mg-2">
+            <a class="btn btn-success" aria-expanded="false" [routerLink]="['/dashboard/reports/averagewaitingtime']">
+              <i class="ti-file"></i>&nbsp;
+              <span class="hide-menu">Average Waiting Time</span>
+          </a>
+        </div>
+        <div class="col-md-3 mg-3">
+            <a class="btn btn-success" aria-expanded="false" [routerLink]="['/dashboard/reports/peaktime']">
+              <i class="ti-file"></i>&nbsp;
+              <span class="hide-menu">Peak/Low Value Chart</span>
+          </a>
+        </div>
+    </div>
+  <div class="row page-titles">
+      <div class="col-md-8 align-self-center">
+        <h4 class="text-themecolor">Peak/Low Value Report</h4>
+      </div>
+  </div>
+  <div class="row page-titles">
+    <!-- <div class="col-md-3 align-self-center">
+      <select aria-placeholder="select" class="form-control" (change)="riderChange($event.target.value)">
+        <option value='' selected="selected">Select rider</option>
+        <option *ngFor="let rider of riderList;let i=index" value={{rider._id._id}}>{{rider._id.name | titlecase}}</option>
+      </select>
+    </div> -->
+    <div class="col-md-3 align-self-center m-top-15">
+      <p-calendar [(ngModel)]="fromdate" [showIcon]="true" class="col-sm-10" [maxDate]="todate"
+        (onSelect)="selectDate(fD.value)" #fD placeholder="From Date"></p-calendar>
+    </div>
+    <div class="col-md-3 align-self-center m-top-15">
+      <p-calendar [(ngModel)]="todate" [showIcon]="true" class="col-sm-10" [minDate]="fromdate" placeholder="To Date">
+      </p-calendar>
+    </div>
+    <div class="col-lg-1 col-md-2 col-3">
+      <div class="searchleads-block sb-padding0 sb-mt14">
+        <button type="button" name="search" class="btn btn-success" value="search" (click)="getReport()">Search</button>
+      </div>
+    </div>
+    <div class="col-lg-1 call-to-action col-md-2 col-3">
+      <div class="searchleads-block sb-padding0 sb-mt14">
+        <button (click)="reset()" class="btn btn-inverse">Reset</button>
+      </div>
+    </div>
+  </div>
+  <div class="card-group">
+    <div class="card">
+      <div class="card-body">
+        <div class="row" id="card1">
+            <div class="col-md-12">
+              <canvas  id="mixedChart" width="150" height="75"></canvas>
+            </div>
+          </div>
+          <span *ngIf="mapDisplay">
+              <div class="row" *ngIf="mapDisplay" align="center">
+                  <div class="col-md-12 list-group-item clearfix ">
+                    X-Asis -- Dates <br>
+                    Y-Asis -- Peak time.
+                  </div>
+                </div>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- </div>
+</div> -->
+
+<!-- ============================================================== -->
+<!-- End Info box -->

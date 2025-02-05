@@ -1,0 +1,27 @@
+.sidebar-nav ul {
+    height: 100%;
+    overflow-x: scroll;
+}
+.sidebar-nav > ul > li{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.sidebar-nav .dropdown-menu{
+  height: auto;
+}
+
+.sidebartoggle{
+
+    left: -220px !important;
+}
+
+@media (max-width: 767px){
+    .left-sidebar{
+      left: -220px !important;
+    }
+    .sidebartoggle{
+      left: 0 !important;
+  }
+  }
+

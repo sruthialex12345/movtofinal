@@ -1,0 +1,161 @@
+﻿﻿<div class="row page-titles">
+  <div class="col-md-5 align-self-center">
+    <h4 class="text-themecolor">{{ isEditable ? "Edit" : "Add New" }} Vehicle</h4>
+  </div>
+  <div class="col-md-7 align-self-center text-right">
+    <div class="d-flex justify-content-end align-items-center tab-float-left">
+      <button type="submit" class="btn btn-success" (click)="save()">{{ isEditable ? "Update" : "Submit" }}</button>
+      <button type="button" class="btn btn-inverse back-space" routerLink="/dashboard/vehicles">Back</button>
+     </div>
+  </div>
+</div>
+
+<!-- Row -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card ">
+      <div class="card-body">
+        <form [formGroup]="addEditForm" (ngSubmit)="save()">
+          <div class="form-body">
+              <div class="row p-t-20">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="control-label">Name<em>*</em></label>
+                        <input formControlName="name" [ngClass]="{ 'form-control-danger': submitted && f.name.errors }" type="text" id="name" class="form-control" placeholder="Audi">
+                        <div *ngIf="submitted && f.name.errors" class="form-control-feedback">
+                          <div *ngIf="f.name.errors.required">Name is required</div>
+                          <div *ngIf="f.name.errors?.pattern">Name is invalid</div>
+                        </div>
+                      </div>
+                  </div>
+                  <!--/span-->
+                  <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="control-label">Make<em>*</em></label>
+                        <input formControlName="company" [ngClass]="{ 'form-control-danger': submitted && f.company.errors }" type="text" id="company" class="form-control form-control-danger" placeholder="Make">
+                        <div *ngIf="submitted && f.company.errors" class="form-control-feedback">
+                            <div *ngIf="f.company.errors.required">Make is required</div>
+                          <div *ngIf="f.company.errors?.pattern">Make is invalid</div>
+                        </div>
+                        <!-- <small class="form-control-feedback"> This field has error. </small>  -->
+                      </div>
+                  </div>
+                  <!--/span-->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Model<em>*</em></label>
+                        <input formControlName="carModel" [ngClass]="{ 'form-control-danger': submitted && f.carModel.errors }" type="text" id="carModel" class="form-control form-control-danger" placeholder="model">
+                        <div *ngIf="submitted && f.carModel.errors" class="form-control-feedback">
+                            <div *ngIf="f.carModel.errors.required">Model is required</div>
+                        </div>
+                        <!-- <small class="form-control-feedback"> This field has error. </small>  -->
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">License Plate<em>*</em></label>
+                        <input formControlName="vehicleNo" [ngClass]="{ 'form-control-danger': submitted && f.vehicleNo.errors }" type="text" id="vehicleNo" class="form-control form-control-danger" placeholder="License Plate" maxlength="10">
+                        <div *ngIf="submitted && f.vehicleNo.errors" class="form-control-feedback">
+                            <div *ngIf="f.vehicleNo.errors.required">License Plate is required</div>
+                        </div>
+                        <!-- <small class="form-control-feedback"> This field has error. </small>  -->
+                      </div>
+                  </div>
+                <!--/span-->
+              </div>
+
+              <!--/row-->
+
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Reg No.<em>*</em></label>
+                      <input formControlName="regNo" [ngClass]="{ 'form-control-danger': submitted && f.regNo.errors }" type="text" class="form-control">
+                      <div *ngIf="submitted && f.regNo.errors" class="form-control-feedback">
+                          <div *ngIf="f.regNo.errors.required">Reg No. is required</div>
+                        <div *ngIf="f.regNo.errors?.pattern">Reg No. is invalid</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/span-->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Color</label>
+                      <input formControlName="color" [ngClass]="{ 'form-control-danger': submitted && f.color.errors }" type="text" class="form-control">
+                      <!-- <div *ngIf="submitted && f.color.errors" class="form-control-feedback">
+                          <div *ngIf="f.color.errors.required">Color is required</div>
+                      </div> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Capacity<em>*</em></label>
+                          <input formControlName="seats" [ngClass]="{ 'form-control-danger': submitted && f.seats.errors }" type="text" class="form-control" pattern="[0-9]+">
+                          <div *ngIf="submitted && f.seats.errors" class="form-control-feedback">
+                              <div *ngIf="f.seats.errors.required">Capacity is required</div>
+                              <div *ngIf="f.seats.errors.pattern">Capacity should be number</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 ">
+                        <div class="form-group">
+                            <label>Type</label>
+                            <input formControlName="type" [ngClass]="{ 'form-control-danger': submitted && f.type.errors }" type="text" class="form-control">
+                            <!-- <div *ngIf="submitted && f.type.errors" class="form-control-feedback">
+                               <div *ngIf="f.type.errors.required">Type is required</div>
+                                <div *ngIf="f.type.errors?.pattern">Type is invalid</div>
+                            </div> -->
+                        </div>
+                    </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Location<em>*</em></label>
+                        <select formControlName="locationId" id=""  class="form-control">
+                            <!-- <option value=''>Select Location</option> -->
+                            <option *ngFor="let loc of locations;let i=index"  value={{loc._id}}>
+                                <span *ngIf="loc.name!=loc.zone.formattedAddress">
+                                    {{loc.name}}, {{loc.zone.formattedAddress}}
+                                </span>
+                                <span *ngIf="loc.name==loc.zone.formattedAddress">
+                                    {{loc.name}}
+                                </span>
+                             </option>
+                          </select>
+                          <div *ngIf="submitted && f.locationId.errors" class="form-control-feedback">
+                              <div *ngIf="f.locationId.errors.required">Please select Location <Code></Code></div>
+                            </div>
+                    </div>
+                    <!-- <div class="d-flex">
+                        <a class="btn btn-success" [routerLink]="['/dashboard/locations/new']">Add Location</a>
+                      </div>                       -->
+                </div>
+
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                    <div class="user-profile-pic">
+                        <figure class="userProfileImage upi-other">
+                          <img width="100px" height="100px" src="{{img}}" alt="" title="" />
+                          <label class="upload-button">
+                            <span class="ub-icon">
+                              <i class="fa fa-upload"></i>
+                            </span>
+                            <input type="file" ngFileSelect (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput">
+                          </label>
+                        </figure>
+                      </div>
+                </div>
+            </div>
+              </div>
+          </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Row -->

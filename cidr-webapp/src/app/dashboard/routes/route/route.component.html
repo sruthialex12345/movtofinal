@@ -1,0 +1,153 @@
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">{{ isEditable ? "Edit" : "Add New" }} Route</h4>
+      </div>
+      <div class="col-md-7 align-self-center text-right">
+        <div class="d-flex justify-content-end align-items-center">
+          <button type="submit" class="btn btn-success" (click)="updateItem()">Submit</button>
+          <button type="button" class="btn btn-inverse" routerLink="/dashboard/routes">Back</button>
+        </div>
+      </div>
+    <!-- <div class="col-md-12">
+      <h3 class="card-title">Route Management</h3>
+    </div> -->
+    <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <form [formGroup]="addEditForm" (ngSubmit)="updateItem()">
+              <div class="form-body">
+                <div class="row p-t-20">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">Location:</label>
+                      <select aria-placeholder="select" formControlName="locationId" class="form-control" (change)="locationChange($event.target.value)">
+                        <!-- <option value=''>Select Location</option> -->
+                        <option *ngFor="let loc of locations;let i=index" value={{loc._id}}>
+                            <span *ngIf="loc.name!=loc.zone.formattedAddress">
+                                {{loc.name}}, {{loc.zone.formattedAddress}}
+                            </span>
+                            <span *ngIf="loc.name==loc.zone.formattedAddress">
+                                {{loc.name}}
+                            </span>
+                        </option>
+                      </select>
+                      <div *ngIf="submitted && f.locationId.errors" class="form-control-feedback">
+                        <div *ngIf="f.locationId.errors.required">Please select Location
+                          <Code></Code>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">Name</label>
+                      <input formControlName="name" [ngClass]="{ 'form-control-danger': submitted && f.name.errors }" type="text" id="name"
+                        class="form-control" placeholder="">
+
+                      <div *ngIf="submitted && f.name.errors" class="form-control-feedback">
+                        <div *ngIf="f.name.errors.required">Name is required</div>
+                        <div *ngIf="f.name.errors?.pattern">Name is invalid</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    <div class="col-lg-8">
+    <agm-map *ngIf=showMapBoolean
+      [latitude]="lat"
+      [longitude]="lng"
+      [zoom]="zoom"
+      [disableDefaultUI]="false"
+      [zoomControl]="false">
+        <agm-marker
+            *ngFor="let m of waypoints; let i = index"
+            [latitude]="m.lat"
+            [longitude]="m.lng"
+            [label]="m.label"
+            >
+        <agm-info-window>
+          <strong>InfoWindow content, {{m.label}}</strong>
+        </agm-info-window>
+    </agm-marker>
+    <agm-direction
+      [origin]="origin"
+      [destination]="destination"
+      [waypoints]="waypoints"
+      [renderOptions]="renderOptions">
+    </agm-direction>
+
+  </agm-map>
+  </div>
+  <div class="col-lg-4">
+    <div class="row">
+      <div class="col-lg-12">
+        <form [formGroup]="routeForm" (ngSubmit)="save()">
+            <div class="row" *ngIf="showPoints">
+              <div class="col-md-11">
+                <div class="form-group" >
+                  <label class="control-label">Select Location (Terminal / Waypoint)</label>
+                  <ng4geo-autocomplete
+                    formControlName="point"
+                    name="point"
+                    ngDefaultControl
+                    [userSettings]="defautlSettings"
+                    (componentCallback)="terminalPoint($event)"
+                    value=""
+                  ></ng4geo-autocomplete>
+                  <div *ngIf="pointRequired" class="form-control-feedback">
+                   {{pointMessage}}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1 margin-right">
+                <button class="btn-route" type="submit" (click)="save()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-12"><br>
+          <div *ngIf="locationDisplay">
+            <p-table [value]="location" [reorderableColumns]="true">
+              <ng-template pTemplate="body" let-rowData let-ri="rowIndex">
+                <tr>
+                  <td pEditableColumn>
+                    <p-cellEditor>
+                      <ng-template pTemplate="input">
+                        <ng4geo-autocomplete
+                          name="point"
+                          ngDefaultControl
+                          [userSettings]="userSettings"
+                          (componentCallback)="updatePoint($event, ri)"
+                        ></ng4geo-autocomplete>
+                      </ng-template>
+                      <ng-template pTemplate="output">
+                        {{ rowData.point.formatted_address }}
+                      </ng-template>
+                    </p-cellEditor>
+                  </td>
+                  <td *ngIf="locationlength>0">
+                    <span *ngIf="ri!=0">
+                        <button pButton class="btn-up-dwn-cls" type="button" (click)="upTerminal(ri)"><i class="fa fa-long-arrow-up" style="height:0px;color:red" aria-hidden="true"></i></button>
+                    </span>
+                      <span *ngIf="ri<locationlength-1 || (ri==0 && locationlength-1 > 0)">
+                          <button pButton class="btn-up-dwn-cls" type="button" (click)="downTerminal(ri)"><i class="fa fa-long-arrow-down" style="height:0px;color:red" aria-hidden="true"></i></button>
+                      </span>
+                  </td>
+
+                  <td>
+                      <button pButton type="button" class="btn-up-dwn-cls" (click)="removeTerminal(ri)"><i class="fa fa-times" style="height:0px;color:red" aria-hidden="true"></i></button>
+                  </td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

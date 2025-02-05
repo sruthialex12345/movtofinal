@@ -1,0 +1,8 @@
+agm-map {
+  height: 400px;
+}
+.margin-right{text-align: right !important;margin-top:28px}
+body .ui-table .ui-table-tbody > tr > td {
+  background: inherit !important;
+  border: 0px solid #c8c8c8 !important;
+}

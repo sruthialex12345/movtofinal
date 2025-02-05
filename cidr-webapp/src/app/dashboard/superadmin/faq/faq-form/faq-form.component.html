@@ -1,0 +1,59 @@
+<div class="row page-titles">
+  <div class="col-md-5 align-self-center">
+    <h4 class="text-themecolor">{{ isEditable ? "Edit" : "Add New" }} Faq</h4>
+  </div>
+  <div class="col-md-7 align-self-center text-right">
+    <div class="d-flex justify-content-end align-items-center">
+      <button type="submit" class="btn btn-success" (click)="save()">{{ isEditable ? "Update" : "Submit" }}</button>
+      <button type="button" class="btn btn-inverse back-space" routerLink="/dashboard/superadmin/faq">Back</button>
+      </div>
+  </div>
+</div>
+
+<!-- edit driver route modal content -->
+
+<!-- /.modal -->
+
+<!-- sample modal content -->
+<!--  -->
+<!-- /.modal -->
+
+<!-- Row -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup]="addEditForm" (ngSubmit)="save()">
+          <div class="form-body">
+            <h3 class="card-title">Faq Info</h3>
+            <hr>
+            <div class="row p-t-20">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label">Question</label>
+                  <p-editor formControlName="question" [style]="{'height':'120px'}"></p-editor>
+
+                  <div *ngIf="submitted && f.question.errors" class="form-control-feedback">
+                    <div *ngIf="f.question.errors.required">Question is required</div>
+                  </div>
+                </div>
+              </div> 
+              <div class="col-md-12">
+                <div class="form-group" >
+                  <label class="control-label">Answer</label>
+                  <span >
+                      <p-editor formControlName="answer" [style]="{'height':'120px'}"></p-editor>
+                  </span>
+                  <div *ngIf="submitted && f.answer.errors" class="form-control-feedback">
+                    <div *ngIf="f.answer.errors.required">Answer is required</div>
+                  </div>
+                  <!-- <small class="form-control-feedback"> This field has error. </small>  -->
+                </div>
+              </div>                                         
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

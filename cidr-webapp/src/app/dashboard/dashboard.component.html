@@ -1,0 +1,36 @@
+<div class="skin-blue fixed-layout">
+    <div id="main-wrapper">
+        <app-header></app-header>
+        <app-sidebar></app-sidebar>
+        <app-footer></app-footer>
+    </div>
+</div>
+<div class="page-wrapper">
+
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- <div class="row page-titles">
+            <div class="col-md-4 align-self-center">
+                <h4 class="text-themecolor">Dashboard </h4>
+            </div> -->
+            <!-- <div class="col-md-7 align-self-center text-right">
+                <div class="d-flex justify-content-end align-items-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard 1</li>
+                    </ol>
+                    <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Create New</button>
+                </div>
+            </div> -->
+            <!-- <ng4geo-autocomplete [userSettings]="userSettings" (componentCallback)="autoCompleteCallback1($event)"></ng4geo-autocomplete> -->
+        <!-- </div> -->
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+
+        <router-outlet></router-outlet>
+    </div>
+
+</div>

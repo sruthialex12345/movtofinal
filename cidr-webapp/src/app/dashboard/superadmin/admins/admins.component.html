@@ -1,0 +1,134 @@
+<!-- <app-loader [isLoading]="isLoading"></app-loader> -->
+<div class="row page-titles">
+    <div class="col-md-2 align-self-center">
+      <h4 class="text-themecolor">Partners Listing</h4>
+    </div>
+  </div>
+  <form #search="ngForm" (ngSubmit)="onClickSubmit(search.value)">
+      <div class="row page-titles">
+          <div class="col-md-8"><input type="text" class="form-control" name="keyword" id="name" placeholder="Search by name, email"
+              [(ngModel)]="keyword"></div>
+          <div class="col-md-1"><button type="submit" class="btn btn-success">Submit</button></div>
+          <div class="col-md-1"><button type="button" class="btn btn-default" (click)="clear()">Clear</button></div>
+          <div class="col-md-1"> <button routerLink="/dashboard/superadmin/admins/new" class="btn btn-primary">
+            Add Partner
+          </button></div>
+        </div>
+    </form>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive m-t-40">
+            <table class="table table-hover" #mf="mfDataTable" [mfData]="items" [mfRowsOnPage]="rowsOnPage"
+              [mfActivePage]="activePage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder" (mfOnPageChange)="onPageChange($event)">
+              <thead>
+                <tr class="w-70">
+                  <th>
+                    <mfDefaultSorter by="name">Name</mfDefaultSorter>
+                  </th>
+                  <th>
+                    <mfDefaultSorter by="email">Email</mfDefaultSorter>
+                  </th>
+                  <th>
+                    <mfDefaultSorter by="phoneNo">Phone</mfDefaultSorter>
+                  </th>
+                  <th>
+                      <mfDefaultSorter>Route Type</mfDefaultSorter>
+                    </th>
+                  <th>
+                    <mfDefaultSorter by="position">Access Code</mfDefaultSorter>
+                  </th>
+                  <th class="center-align w-10">Action</th>
+                </tr>
+              </thead>
+              <tbody *ngIf="mf.data.length > 0">
+                <ng-template ngFor let-item [ngForOf]="mf.data" let-i="index">
+                  <tr>
+
+                    <td class="w-70 capitalize">
+                      <span class="list-enq-name">
+                          <a title="Edit" routerLink="/dashboard/superadmin/admins/{{item._id}}/edit" class="statusrow"
+                          ui-toggle-class="" >
+                          {{item.name | titlecase}}
+                        </a>
+
+                      </span>
+                    </td>
+
+                    <td class="w-70 capitalize">{{item.email}}</td>
+                    <td class="w-70 capitalize">+{{item.isdCode}} - {{item.phoneNo}}</td>
+                    <td class="w-70 capitalize">{{item.tripType=='dynamicRoute'?'Dynamic':'Circular'}}</td>
+                    <td class="w-70 capitalize">{{item.accessCode}}</td>
+
+                    <td class="center-align w-10">
+                        <span>
+                        <a title="Edit" routerLink="/dashboard/superadmin/admins/{{item._id}}/edit" class="superadmin-space statusrow"
+                        ui-toggle-class="" >
+                        <button class="btn btn-dark btn-sm"><i class="fa fa-pencil"></i></button>
+                      </a>
+                      </span>
+                      <span>
+                        <a class="superadmin-space statusrow" routerLink="/dashboard/superadmin/admins/viewDrivers/{{item._id}}"
+                          ui-toggle-class="" title="Drivers List">
+                          <button class="btn btn-danger btn-sm" style="color:white"><i class="fa fa-id-badge" aria-hidden="true"></i></button>
+                        </a>
+                      </span>
+                      <span>
+                          <a class="superadmin-space statusrow" routerLink="/dashboard/superadmin/admins/viewVehicles/{{item._id}}"
+                            ui-toggle-class="" title="Vehicle List">
+                            <button class="btn btn-warning btn-sm"><i class="fa fa-cab" aria-hidden="true"></i></button>
+                          </a>
+                        </span>
+                        <span>
+                            <a class="superadmin-space statusrow" routerLink="/dashboard/superadmin/admins/viewRating/{{item._id}}"
+                              ui-toggle-class="" title="Ratings">
+                              <button class="btn btn-primary btn-sm"><i class="fa fa-star" aria-hidden="true">
+                              </i></button>
+                            </a>
+                          </span>
+
+                      <span *ngIf="item.isActive">
+                        <a class="superadmin-space statusrow" (click)="updateStatus(item._id,false)"
+                          ui-toggle-class="" title="Deactivate partner">
+                          <button class="btn btn-sm" style="color:green"><i class="fa fa-check "></i></button>
+                        </a>
+                      </span>
+                      <span *ngIf="!item.isActive">
+                        <a class="superadmin-space statusrow deactive" (click)="updateStatus(item._id,true)"
+                          ui-toggle-class="" title="Activate partner">
+                          <button class="btn btn-sm" style="color:gray"><i class="fa fa-close "></i></button>
+                        </a>
+                      </span>
+                      <span>
+                        <a title="Delete" [swal]="{showCancelButton: true,confirmButtonText: 'Yes',title: 'Are you sure that you want to delete'}" (confirm)="removeItem1(item._id)" style="cursor:pointer;">
+                          <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                      </a>
+                      </span>
+                    </td>
+                  </tr>
+                </ng-template>
+              </tbody>
+              <tfoot *ngIf="mf.data.length > 0">
+                <tr>
+                  <td colspan="6">
+                    <mfBootstrapPaginator [rowsOnPageSet]="rowsInTable" class="footer-page"></mfBootstrapPaginator>
+                  </td>
+                </tr>
+              </tfoot>
+              <tfoot *ngIf="mf.data.length === 0">
+                <tr>
+                  <td colspan="12" class="text-center">
+                    <label class="record-label">No record found </label>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <swal #deleteSwal title='Are you sure that you want to delete this ?' type='warning' showCancelButton="true"
+    confirmButtonText='Yes'></swal>

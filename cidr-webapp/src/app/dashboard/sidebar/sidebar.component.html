@@ -1,0 +1,178 @@
+<aside class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- ADMIN Sidebar navigation-->
+        <nav class="sidebar-nav" *ngIf="(userDetails && userDetails.userType=='admin')">
+
+            <ul id="sidebarnav">
+                <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:
+                    true}">
+                    <a class="waves-effect waves-dark" aria-expanded="false" [routerLink]="['/dashboard/profile']" >
+                        <i class="icon-speedometer"></i>
+                        <span class="hide-menu">Account info</span>
+                    </a>
+                </li>
+                <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:
+                    true}">
+                    <a class="waves-effect waves-dark" aria-expanded="false" [routerLink]="['/dashboard']" >
+                        <i class="icon-speedometer"></i>
+                        <span class="hide-menu">Dashboard</span>
+                    </a>
+                </li>
+                <li [routerLinkActive]="['active']">
+                    <a class="waves-effect waves-dark" aria-expanded="false" [routerLink]="['/dashboard/locations']">
+                        <i class="ti-location-pin"></i>
+                        <span class="hide-menu">Locations</span>
+                    </a>
+                </li>
+                <li [routerLinkActive]="['active']" *ngIf="showRoute">
+                    <a class="waves-effect waves-dark" aria-expanded="false" [routerLink]="['/dashboard/routes']">
+                        <i class="ti-map-alt"></i>
+                        <span class="hide-menu">Routes</span>
+                    </a>
+                  </li>
+
+                <li [routerLinkActive]="['active']">
+                    <a class="waves-effect waves-dark" aria-expanded="false" [routerLink]="['/dashboard/drivers']">
+                        <i class="ti-user"></i>
+                        <span class="hide-menu">Drivers</span>
+                    </a>
+                </li>
+                <li [routerLinkActive]="['active']">
+                    <a class="waves-effect waves-dark" aria-expanded="false" [routerLink]="['/dashboard/vehicles']">
+                        <i class="ti-car"></i>
+                        <span class="hide-menu">Vehicles</span>
+                    </a>
+                </li>
+                <li [routerLinkActive]="['active']">
+                    <a class="waves-effect waves-dark" aria-expanded="false" [routerLink]="['/dashboard/reservation-code']">
+                        <i class="ti-announcement"></i>
+                        <span class="hide-menu">Booking Code</span>
+                    </a>
+                </li>
+                <!-- <li class="dropdown" [routerLinkActive]="['active']">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="ti-file"></i>
+                            <span class="hide-menu">Reports</span> <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li [routerLinkActive]="['active']">
+                        <a class="waves-effect waves-dark" aria-expanded="false" [routerLink]="['/dashboard/reports/noofrequest']">
+                            <i class="ti-file"></i>
+                            <span class="hide-menu">No of request</span>
+                        </a>
+                    </li>
+                    <li [routerLinkActive]="['active']">
+                        <a class="waves-effect waves-dark" aria-expanded="false" [routerLink]="['/dashboard/reports/noofridersserved']">
+                            <i class="ti-file"></i>
+                            <span class="hide-menu">No of riders particular driver</span>
+                        </a>
+                    </li>
+                    <li [routerLinkActive]="['active']">
+                        <a class="waves-effect waves-dark" aria-expanded="false" [routerLink]="['/dashboard/reports/averagewaitingtime']">
+                            <i class="ti-file"></i>
+                            <span class="hide-menu">Average waiting time</span>
+                        </a>
+                    </li>
+                    <li [routerLinkActive]="['active']">
+                        <a class="waves-effect waves-dark" aria-expanded="false" [routerLink]="['/dashboard/reports/peaktime']">
+                            <i class="ti-file"></i>
+                            <span class="hide-menu">Peak/Low value chart</span>
+                        </a>
+                    </li>
+                    </ul>
+                  </li> -->
+
+                <li [routerLinkActive]="['active']">
+                    <a class="waves-effect waves-dark" aria-expanded="false" [routerLink]="['/dashboard/message/custom-message']">
+                        <i class="ti-comment-alt"></i>
+                        <span class="hide-menu">Welcome Message</span>
+                    </a>
+                </li>
+                <li [routerLinkActive]="['active']">
+                    <a class="waves-effect waves-dark" aria-expanded="false" [routerLink]="['/dashboard/message/on-demand-message']">
+                        <i class="ti-comment-alt"></i>
+                        <span class="hide-menu">On demand Message</span>
+                    </a>
+                </li>
+                <li [routerLinkActive]="['active']">
+                    <a class="waves-effect waves-dark" aria-expanded="false" [routerLink]="['/dashboard/message/user-message']">
+                        <i class="ti-comment-alt"></i>
+                        <span class="hide-menu">Notify Message</span>
+                    </a>
+                </li>
+                <li [routerLinkActive]="['active']">
+                    <a class="waves-effect waves-dark" aria-expanded="false" [routerLink]="['/dashboard/custom-email-template']">
+                        <i class="ti-comment-alt"></i>
+                        <span class="hide-menu">Custom Email Template</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    <!-- End  ADMIN Sidebar navigation-->
+    <!-- Start SUPERADMIN Sidebar navigation-->
+    <nav class="sidebar-nav" *ngIf="(userDetails && userDetails.userType=='superAdmin')">
+            <ul id="sidebarnav">
+                <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:
+                    true}">
+                    <a class="waves-effect waves-dark" aria-expanded="false" [routerLink]="['/dashboard']">
+                        <i class="icon-speedometer"></i>
+                        <span class="hide-menu">Dashboard
+                            <!-- <span class="badge badge-pill badge-cyan ml-auto">4</span> -->
+                        </span>
+                    </a>
+                </li>
+                <li [routerLinkActive]="['active']">
+                    <a class="waves-effect waves-dark" aria-expanded="false" [routerLink]="['/dashboard/superadmin/users']">
+                        <i class="ti-user"></i>
+                        <span class="hide-menu">Users</span>
+                    </a>
+                </li>
+
+                <li [routerLinkActive]="['active']">
+                    <a class="waves-effect waves-dark" aria-expanded="false" [routerLink]="['/dashboard/superadmin/admins']">
+                        <i class="ti-lock"></i>
+                        <span class="hide-menu">Partners</span>
+                    </a>
+                </li>
+                <li [routerLinkActive]="['active']">
+                    <a class="waves-effect waves-dark" aria-expanded="false" [routerLink]="['/dashboard/superadmin/reviews']">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <span class="hide-menu">Reviews</span>
+                    </a>
+                </li>
+                <li [routerLinkActive]="['active']">
+                  <a class="waves-effect waves-dark" aria-expanded="false" [routerLink]="['/dashboard/superadmin/cms']">
+                    <i class="fa fa-file" aria-hidden="true"></i>
+                      <span class="hide-menu">CMS</span>
+                  </a>
+              </li>
+              <li [routerLinkActive]="['active']">
+                <a class="waves-effect waves-dark" aria-expanded="false" [routerLink]="['/dashboard/superadmin/faq']">
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    <span class="hide-menu">FAQ</span>
+                </a>
+            </li>
+            <li [routerLinkActive]="['active']">
+                <a class="waves-effect waves-dark" aria-expanded="false" [routerLink]="['/dashboard/superadmin/blog']">
+                  <i class="fa fa-file" aria-hidden="true"></i>
+                    <span class="hide-menu">Blog Management</span>
+                </a>
+            </li>
+              <li [routerLinkActive]="['active']">
+                <a class="waves-effect waves-dark" aria-expanded="false" [routerLink]="['/dashboard/superadmin/contactUs']">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <span class="hide-menu">Contact Us</span>
+                </a>
+            </li>
+            <li [routerLinkActive]="['active']">
+                <a class="waves-effect waves-dark" aria-expanded="false" [routerLink]="['/dashboard/superadmin/join-partners-list']">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <span class="hide-menu">Join Partners</span>
+                </a>
+            </li>
+            </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+</aside>

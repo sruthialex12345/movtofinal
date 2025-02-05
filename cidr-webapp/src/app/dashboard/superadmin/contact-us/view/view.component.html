@@ -1,0 +1,101 @@
+<!-- <app-loader [isLoading]="isLoading"></app-loader> -->
+<div class="row page-titles">
+  <div class="col-md-2 align-self-center">
+    <h4 class="text-themecolor">Users Listing</h4>
+  </div>
+</div>
+
+<form #search="ngForm" (ngSubmit)="onClickSubmit(search.value)">
+  <div class="row page-titles">
+      <div class="col-md-10"><input type="text" class="form-control" name="keyword" id="name" placeholder="Search by name, email"
+        [(ngModel)]="keyword"></div>
+      <div class="col-md-1"><button type="submit" class="btn btn-success">Submit</button></div>
+      <div class="col-md-1"><button type="button" class="btn btn-default" (click)="clear()">Clear</button></div>
+    </div>
+</form>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="table-responsive m-t-40">
+          <table class="table table-hover" #mf="mfDataTable" [mfData]="items" [mfRowsOnPage]="rowsOnPage"
+            [mfActivePage]="activePage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder" (mfOnPageChange)="onPageChange($event)">
+            <thead>
+              <tr class="w-70">
+                <th>
+                  <mfDefaultSorter by="name">Name</mfDefaultSorter>
+                </th>
+                <th>
+                  <mfDefaultSorter by="email">Email</mfDefaultSorter>
+                </th>
+                <th>
+                  <mfDefaultSorter by="phoneNo">Phone</mfDefaultSorter>
+                </th>
+                <th>
+                  <mfDefaultSorter by="position">Address</mfDefaultSorter>
+                </th>
+                <th class="center-align w-10">Actions</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="mf.data.length > 0">
+              <ng-template ngFor let-item [ngForOf]="mf.data" let-i="index">
+                <tr>
+
+                  <td class="w-70 capitalize">
+                    <span class="list-enq-name">{{item.name?item.name:item.fname +' '+item.lname | titlecase}}</span>
+                  </td>
+
+                  <td class="w-70 capitalize">{{item.email}}</td>
+                  <td class="w-70 capitalize">+{{item.isdCode}} - {{item.phoneNo}}</td>
+                  <td class="w-70 capitalize">{{item.address +' '+item.city +' '+item.state+','+item.country}}</td>
+
+                  <td class="center-align w-10">
+                    <span>
+                      <a href="javascript:void(0)" routerLink="/dashboard/superadmin/viewRides/{{item._id}}" class="statusrow"
+                        ui-toggle-class="" title="Ride History">
+                        <i class="fa fa-eye "></i>
+                      </a>
+                    </span>
+                    <!-- <span *ngIf="item.status && item.status =='Active'"> |
+                      <a href="javascript:void(0)" (click)="updateStatus(item._id,false)" class="statusrow"
+                        ui-toggle-class="" title="Update Status">
+                        <i class="fa fa-check "></i>
+                      </a>
+                    </span>
+                    <span *ngIf="item.status && item.status=='Inactive'"> |
+                      <a href="javascript:void(0)" (click)="updateStatus(item._id,true)" class="statusrow deactive"
+                        ui-toggle-class="" title="Update Status">
+                        <i class="fa fa-circle "></i>
+                      </a>
+                    </span> -->
+                    <!-- <a title="Edit" routerLink="/dashboard/drivers/{{item._id}}/edit"><i class="fa fa-pencil-square-o driver-space" aria-hidden="true"></i></a> -->
+                    <!-- <a title="Delete" [swal]="{showCancelButton: true,confirmButtonText: 'Yes',title: 'Are you sure that you want to delete '+ item.fname + ' ' + item.lname +'?',type: 'warning'}" (confirm)="removeItem1(item)"><i class="fa fa-trash-o  driver-space" aria-hidden="true"></i></a> -->
+                    <!-- <a title="Edit Route" routerLink="/dashboard/drivers/{{item._id}}/routeconfig" class="driver-space">Route</a> -->
+                  </td>
+                </tr>
+              </ng-template>
+            </tbody>
+            <tfoot *ngIf="mf.data.length > 0">
+              <tr>
+                <td colspan="6">
+                  <mfBootstrapPaginator [rowsOnPageSet]="rowsInTable" class="footer-page"></mfBootstrapPaginator>
+                </td>
+              </tr>
+            </tfoot>
+            <tfoot *ngIf="mf.data.length === 0">
+              <tr>
+                <td colspan="12" class="text-center">
+                  <label class="record-label">No record found </label>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<swal #deleteSwal title='Are you sure that you want to delete this ?' type='warning' showCancelButton="true"
+  confirmButtonText='Yes'></swal>

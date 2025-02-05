@@ -1,0 +1,45 @@
+<div class="row page-titles">
+  <div class="col-md-5 align-self-center">
+    <h4 class="text-themecolor">Welcome Message</h4>
+  </div>
+  <div class="col-md-7 align-self-center text-right">
+    <div class="d-flex justify-content-end align-items-center tab-float-left">
+      <button type="submit" class="btn btn-success" (click)="updateMessage()">Update</button>
+      <span *ngIf="messageAvailable">
+        <button type="button" class="btn btn-inverse back-space" (click)="removeMessage()">Delete</button>
+      </span>
+
+    </div>
+  </div>
+</div>
+
+<!-- Row -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup]="messageCustomForm" (ngSubmit)="updateMessage()">
+          <div class="form-body">
+            <h3 class="card-title">Message</h3>
+            <hr>
+            <div class="row p-t-20">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label">Message</label>
+                  <textarea formControlName="message" [ngClass]="{ 'form-control-danger': submitted && f.message.errors }" type="textarea" id="messageFrom"
+                    class="form-control" placeholder="Enter Message" rows="4" cols="50"  maxlength="10" maxlength="300">
+                    ></textarea>
+
+                  <div *ngIf="submitted && f.message.errors" class="form-control-feedback">
+                    <div *ngIf="f.message.errors.required">Message is required</div>
+                  </div>
+                </div>
+              </div>
+              <!--/span-->
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

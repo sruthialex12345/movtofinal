@@ -1,0 +1,131 @@
+<div class="row page-titles">
+  <div class="col-md-5 align-self-center">
+    <h4 class="text-themecolor">Settings</h4>
+  </div>
+  <div class="col-md-7 align-self-center text-right">
+    <div class="d-flex justify-content-end align-items-center">
+      <button type="submit" class="btn btn-success" (click)="updateItem()">Submit</button>
+      <button type="button" class="btn btn-inverse back-space" routerLink="/dashboard">Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- Row -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card ">
+      <div class="card-body">
+        <form [formGroup]="addEditForm" (ngSubmit)="save()">
+          <div class="form-body">
+            <div class="row p-t-20">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="col-8 col-md-6 col-md-offset-2 control-label">Allow Schedule Trips:</label>
+                  <input class="col-4 col-md-4" formControlName="allowScheduleTrips" type="checkbox" id="AllowScheduledTrips">
+                </div>
+              </div>
+              <!--/span-->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="col-8 col-md-6 col-md-offset-2 control-label">Operator Assigned:</label>
+                  <input class="col-4 col-md-4" formControlName="isOperatorAssigned" type="checkbox" id="OperatorAssigned">
+                </div>
+              </div>
+              <!--/span-->
+              <div class="col-md-12">
+                <label class="col-8 col-md-6 col-md-offset-2 control-label">Working Time</label>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="col-8 col-md-6 col-md-offset-2 control-label">Start Time:</label>
+                  <p-calendar formControlName="startTime" [timeOnly]="true" (onSelect)="onStartTime($event)"></p-calendar>
+                </div>
+              </div>
+              <!--/span-->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="col-8 col-md-6 col-md-offset-2 control-label">End Time:</label>
+                  <p-calendar formControlName="endTime" [timeOnly]="true" (onSelect)="onEndTime($event)"></p-calendar>
+                </div>
+              </div>
+              <!--/span-->
+            </div>
+          </div>
+        </form>
+        <!--from closed-->
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Row -->
+
+<!-- Row -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card ">
+      <div class="card-body">
+        <form [formGroup]="addHolidaysForm">
+          <div class="form-body">
+            <div class="row p-t-20">
+              <div class="col-md-12">
+                <label class="col-8 col-md-6 col-md-offset-2 control-label">Holiday</label>
+              </div>
+              <!--/span-->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="col-8 col-md-6 col-md-offset-2 control-label">Title:</label>
+                  <input class="col-4 col-md-4" formControlName="title" type="text">
+                </div>
+              </div>
+              <!--/span-->
+              <div *ngIf="newHoliday" class="col-md-6">
+                <div class="form-group">
+                  <label class="col-8 col-md-6 col-md-offset-2 control-label">Date:</label>
+                  <p-calendar formControlName="date" showButtonBar="true" (onSelect)="onSelectDate($event)"></p-calendar>
+                </div>
+              </div>
+              <!--/span-->
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="row submit-class" *ngIf="newHoliday">
+                <button type="submit" class="btn btn-success" (click)="addHolidays()">Submit</button>
+              </div>
+              <div class="row submit-class" *ngIf="!newHoliday">
+                <button type="submit" class="btn btn-success" (click)="addHolidays()">Update</button>
+                <button *ngIf="!newHoliday" type="button" class="btn btn-inverse back-space" (click)="cancel()">Cancel</button>
+              </div>
+            </div>
+          </div>
+
+        </form>
+        <!--from closed-->
+
+        <div class="row">
+          <!-- <p-table [value]="items" [reorderableColumns]="true"> -->
+          <p-table [columns]="cols" [value]="items" selectionMode="single" [paginator]="true" [rows]="5">
+            <ng-template pTemplate="header" let-columns="columns">
+              <tr>
+                <th>Date</th>
+                <th>Title</th>
+                <th>Action</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+              <tr>
+                <td>{{rowData.date | date:'MMM d, y'}}</td>
+                <td>{{rowData.title}} </td>
+                <td>
+                  <button class="btn btn-dark btn-sm" (click)="editHoliday(rowData)"><i class="fa fa-pencil"></i></button>
+                  <a title="Delete" [swal]="{showCancelButton: true,confirmButtonText: 'Yes',title: 'Are you sure that you want to delete '+ rowData.title +'?',type: 'warning'}"
+                    (confirm)="removeHoliday(rowData._id)">
+                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                  </a>
+
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>

@@ -1,0 +1,18 @@
+agm-map {
+  height: 350px;
+}
+
+.btn {
+  margin-right: 10px;
+}
+
+agm-map {
+  height: 400px;
+}
+.margin-right{text-align: right !important;margin-top:28px}
+body .ui-table .ui-table-tbody > tr > td {
+  background: inherit !important;
+  border: 0px solid #c8c8c8 !important;
+}
+.btn-route{height: 51px;margin-left: -17px;}
+.btn-up-dwn-cls{background-color: #fff !important; border:#fff !important; text-align: center}

@@ -1,0 +1,89 @@
+<!-- <app-loader [isLoading]="isLoading"></app-loader> -->
+<div class="row page-titles">
+  <div class="col-md-6 align-self-center">
+    <h4 class="text-themecolor">Rides Listing</h4>
+  </div>
+  <div class="col-md-6 align-self-center">
+    <div class="d-flex justify-content-end align-items-center">
+      <button type="button" class="btn btn-inverse" (click)="backTo()">Back</button>
+    </div>
+</div>
+  <div class="col-md-7 align-self-center">
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">        
+        <div class="table-responsive m-t-40">
+          <table class="table table-hover" #mf="mfDataTable" [mfData]="items" [mfRowsOnPage]="rowsOnPage" [mfActivePage]="activePage"
+            [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder" (mfOnPageChange)="onPageChange($event)">
+            <thead>
+              <tr class="w-70">
+                <th>
+                  <mfDefaultSorter by="name">Name</mfDefaultSorter>
+                </th>
+                <th>
+                  <mfDefaultSorter by="position">Driver</mfDefaultSorter>
+                </th>
+                <th>
+                    <mfDefaultSorter by="position">Phone</mfDefaultSorter>
+                </th>
+                <th>
+                    <mfDefaultSorter by="position">From</mfDefaultSorter>
+                </th>  
+                <th>
+                  <mfDefaultSorter by="position">To</mfDefaultSorter>
+              </th>  
+              <th>
+                <mfDefaultSorter by="position">Payment</mfDefaultSorter>
+            </th>  
+            <th>
+              <mfDefaultSorter by="position">Date</mfDefaultSorter>
+          </th>
+              <th>
+                <mfDefaultSorter by="position">Status</mfDefaultSorter>
+            </th>  
+                <!-- <th class="center-align w-10">Actions</th> -->
+              </tr>
+            </thead>
+            <tbody *ngIf="mf.data.length > 0">
+              <ng-template ngFor let-item [ngForOf]="mf.data" let-i="index">
+                <tr>
+
+                  <td class="w-70 capitalize">
+                      <span class="list-enq-name">{{item['riderId'].name?item['riderId'].name : item['riderId'].fname +' '+item['riderId'].lname | titlecase}}</span>                   
+                  </td>
+
+                  <td class="w-70 capitalize">
+                    <span class="list-enq-name">{{item['driverId'].name?item['driverId'].name : item['driverId'].fname +' '+item['driverId'].lname | titlecase}}</span>                   
+                </td>
+                  <td class="w-70 capitalize">+{{item['riderId'].isdCode}}{{item['riderId'].phoneNo}}</td>
+                  <td class="w-50 capitalize">{{item['srcLoc'].name | titlecase}}</td>
+                  <td class="w-50 capitalize">{{item['destLoc'].name | titlecase}}</td>
+                  <td class="w-70 capitalize">{{item.paymentMode | titlecase}}</td>
+                  <td class="w-70 capitalize">{{item.requestTime | date}}</td>
+                  <td class="w-70 capitalize">{{item.tripRequestStatus | titlecase}}</td>
+                </tr>
+              </ng-template>
+            </tbody>
+          <tfoot *ngIf="mf.data.length > 0">
+            <tr>
+              <td colspan="6">
+                <mfBootstrapPaginator [rowsOnPageSet]="rowsInTable" class="footer-page"></mfBootstrapPaginator>
+              </td>
+            </tr>
+          </tfoot>
+          <tfoot *ngIf="mf.data.length === 0">
+            <tr>
+              <td colspan="12" class="text-center">
+                <label class="record-label">No record found </label>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

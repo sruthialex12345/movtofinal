@@ -1,0 +1,36 @@
+.about-banner{background-image:url(../../assets/images/service-banner.jpg);background-position:left top;background-repeat:no-repeat;background-size:cover;min-height:586px;padding-top:226px}
+.title-format{color:#2C9984;font-weight:700;font-size:40px;padding-bottom:10px}
+.text-format{line-height:22px;color:rgba(51,51,51,0.7);font-weight: 500;}
+
+
+.slide-crousal-frame{padding:65px 0;}
+.content-frame{max-width:310px;margin:0 auto;}
+.content-frame figure{margin: 0 0 10px;}
+.content-frame h4{font-size:20px;margin:0;padding-bottom:10px;line-height:30px;font-weight:600;}
+.content-frame p{color:rgba(51,51,51,0.7);;line-height:22px;}
+.pad-top60{padding-top:60px;}
+.pad-top60 .content-frame{padding-top:120px;}
+.pad-top60 .content-frame + .content-frame {padding-top:180px;}
+.sider-frame{width:381px;margin:0 auto;background-image:url(../../assets/images/services-slider-bg.png);background-position:left center;background-repeat:no-repeat;min-height:802px;position: relative;}
+.slide-show{position:absolute;left:13px;right:13px;top:13px;bottom:13px;background-color:#333;border-radius:35px;overflow:hidden;}
+
+
+.testimonails{padding:65px 0;background-color:#F9F9F9;}
+
+@media (min-width:991px) and (max-width:1199px){
+    .sider-frame{background-size:100% auto;width:100%;min-height:633px;}
+}
+@media(max-width:991px){
+    .content-frame.float-right{float:none!important}
+    .row.pad-top60{padding-top:0;}
+    .pad-top60 .content-frame { padding-top: 60px;}
+    .pad-top60 .content-frame + .content-frame {padding-top:60px;}
+    .sider-frame{margin-top:60px;}
+}
+@media (max-width:420px){
+    .sider-frame{width:320px;background-size: 99% auto;min-height:668px;}
+}
+@media (max-width:380px){
+    .sider-frame{width:240px;background-size: 99% auto;min-height:504px;}
+    .slide-show{left:13px;right:17px;top:17px;bottom:22px;}
+}

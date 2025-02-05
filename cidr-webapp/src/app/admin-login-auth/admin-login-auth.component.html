@@ -1,0 +1,81 @@
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<section id="wrapperLogin">
+  <!-- <div class="login-register" style="background-image:url(../assets/images/background/login-register.jpg);"> -->
+    <div class="login-register">
+    <div class="login-box card" >
+      <div class="card-body" *ngIf="!loginByAccessCode">
+        <form [formGroup]="loginAuthForm" (ngSubmit)="login()" class="form-horizontal form-material" id="loginform" action="index.html">
+          <h4 class="box-title m-b-20">Sign In</h4>
+
+          <div class="form-group ">
+            <div class="col-12">
+              <label>Email</label>
+              <input formControlName="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" [ngClass]="{ 'form-control-danger': submitted && f.email.errors }" class="form-control" type="text" required="">
+            </div>
+            <div *ngIf="submitted && f.email.errors" class="form-control-feedback">
+              <div *ngIf="f.email.errors.required">Email is required</div>
+              <div *ngIf="f.email.errors.pattern">Email is invalid</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-12">
+                <label>Password</label>
+              <input formControlName="password" [ngClass]="{ 'form-control-danger': submitted && f.password.errors }" class="form-control" type="password" required="">
+            </div>
+            <div *ngIf="submitted && f.password.errors" class="form-control-feedback">
+              <div *ngIf="f.password.errors.required">Password is required</div>
+            </div>
+          </div>
+          <!-- <div class="form-group row">
+            <div class="col-md-12">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Remember me</label>
+              </div>
+            </div>
+          </div>-->
+          <div class="form-group login-button">
+            <div class="col-12">
+              <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit">Log In</button>
+              <a routerLink="/forgot-passoword" class="text-info m-l-5">Forgot Password</a>
+            </div>
+          </div>
+          <div class="form-group m-b-0">
+            <div class="col-sm-12 text-center">
+              Don't have an account?
+              <a routerLink="/register" class="text-info m-l-5 sign-mob">Sign Up</a>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="card-body form-horizontal form-material" *ngIf="loginByAccessCode">
+        <h4 class="box-title m-b-20">Login with AccessCode</h4>
+
+        <div class="form-group ">
+          <div class="col-12">
+            <label>AccessCode</label>
+            <input (ngModel)="accessCode" class="form-control" type="password" required="" #accesscodeID (keyup.enter)="loginWithAccessCode(accesscodeID.value)">
+            <div *ngIf="accessCodeRequires" class="form-control-feedback">
+              <div>Access code is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="row form-group login-button">
+          <div class="col-6">
+            <button class="btn btn-block btn-lg btn-info btn-rounded" type="button" (click)="loginWithAccessCode(accesscodeID.value)">Log In</button>
+          </div>
+          <div class="col-6">
+            <button class="bck-to-login btn btn-block btn-lg btn-info btn-rounded" type="button" (click)="backToLogin()">Back To Login</button>
+          </div>
+        </div>
+    </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->

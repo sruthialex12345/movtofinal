@@ -1,0 +1,96 @@
+body{ overflow-y: hidden;}
+.about-banner{background-image:url(../../assets/images/riders-banner.jpg);background-position:left top;background-repeat:no-repeat;background-size:cover;min-height:586px;padding-top:226px}
+.banner-title{font-size:40px;color:#333;line-height:40px;padding-bottom:17px;margin-bottom:0}
+.banner-content{color:#333;line-height:22px}
+.about-for-rider{padding:80px 0 580px; background-image:url(../../assets/images/about-for-rider.png);background-position:right 128px;background-repeat:no-repeat;}
+.title-format{color:#2C9984;font-weight:700;font-size:40px;padding-bottom:10px}
+.text-format{line-height:22px;color:rgba(51,51,51,0.7);font-weight: 500;}
+.about-for-rider .text-format { text-align: justify; }
+.about-watch-video figure img{width:100%}
+.align-self-center{-webkit-align-self:center;align-self:center}
+/* .about-watch-video{padding:135px 0;background-color:#F9F9F9;} */
+.about-watch-video figure{margin-bottom:0;position: relative;}
+.about-watch-video a{display:block;width:72px;height:72px;position:absolute;left:43%;top:36%;}
+.close{position:absolute;width:24px;height:24px;border-radius:30px;text-shadow:none;opacity:1;background-color:#fff;right:-10px;top:-10px;line-height: 24px;}
+.close:hover{opacity:1;background-color:#000;color:#fff}
+
+
+.gray-bg{ background: rgba(245, 244, 244, .5); padding: 40px 0;}
+/* .driver-benifits{ margin-top: 40px;} */
+.driver-benifits .block{ background: #fff; border: 1px solid #E5DEDE; padding: 15px 20px; position: relative; min-height: 275px;}
+.driver-benifits .block .step-count{ position: absolute; left: 0; right: 0; top: -20px; border:none;}
+.driver-benifits .block .icon{ background: none; height: 100px; width: 100px;}
+.driver-benifits .driver-benifits-screens{ margin-top: 72px;}
+.driver-benifits .driver-benifits-screens img{ max-width: 100%;}
+
+.shuttle-operator-benifits{ margin-top: 25px; overflow-x: hidden;}
+.shuttle-operator-benifits .row .col{ min-width: 180px;}
+.shuttle-operator-benifits .step-count{border: 1px solid rgba(51, 51, 51, .08); padding: 5px; display: inline-block; border-radius: 100%;}
+.shuttle-operator-benifits .step-count span{ background: #333333; color: #fff; border-radius: 100%; text-align: center; width: 28px; height: 28px; display: inline-block; line-height: 28px;}
+.shuttle-operator-benifits .icon{background: #F6CF65; width: 83px; height: 83px; line-height: 83px; text-align: center; border-radius: 100%; margin: 30px auto;}
+.shuttle-operator-benifits .desc{ margin-top: 30px;}
+.shuttle-operator-benifits .desc p{ color: #333333; font-size: 15.2px;}
+
+.passengers-benefits .icon{ background: none; height: 63px; width: auto; line-height: normal;}
+.passengers-benefits .bdr-right{position: relative; }
+.passengers-benefits .bdr-right::after{ position: absolute; top: 50%; transform: translateY(-50%); right: -15px; background: #ddd; height: 50px; width: 1px; content: ""; opacity: .5;}
+@media (max-width:991px){
+    .about-for-rider{padding-bottom:80px;background-image:none; text-align: center;}
+}
+@media (max-width:600px){
+    .mr-bottom-50{margin-bottom:50px;}
+}
+@media (max-width:575px){
+    .about-watch-video{padding:80px 0;}
+}
+@media (max-width:420px){
+    .about-banner{padding-top:200px}
+}
+
+.how_we_work{padding:80px 0; }
+ul.timeline{padding:0;position:relative;margin:0;list-style:none}
+.timeline > li{position:relative}
+.timeline > li:first-child .centerDot{top:25%}
+.timeline img{max-width:100%}
+.timeline > li:first-child .timeline-panel h3{margin-top:16%}
+.timeline > li:first-child:before{top:24%}
+.timeline > li:last-child{margin-bottom:0}
+.timeline > li:last-child:before{content:none}
+.timeline > li:before,.timeline > li:after{content:" ";display:table}
+.timeline > li:before{top:38%;bottom:-37%;position:absolute;content:" ";display:inline-block;margin-top:81px;border-radius:10px;width:6px;background-color:#e4e4e4;left:50%;margin-left:-.5px}
+.timeline > li:after{clear:both}
+.timeline > li > .timeline-panel{width:46%;background:#fff;float:left;padding:25px;position:relative}
+.timeline-panel h3{margin-top:22%;color:#2C9984;font-weight:600;font-size:24px}
+.timeline-panel p{color:rgba(51,51,51,0.7);font-weight:500;font-size:14px}
+.bulletedList{padding:0;margin-left:20px}
+.bulletedList > li{list-style-type:disc;padding:3px 5px}
+.centerDot{height:64px;width:64px;background:none;border:10px #eee solid;border-radius:50%;-webkit-border-radius:50%;position:absolute;left:50%;top:38%;margin-left:-30px;text-align:center;color:#fff;font-size:24px;font-weight:700;line-height:42px}
+.centerDot span{display:block;background:#333;height:100%;border-radius:50%;-webkit-border-radius:50%}
+.timeline > li.timeline-inverted > .timeline-panel:before{border-left-width:0;border-right-width:15px;left:-15px;right:auto}
+.timeline > li.timeline-inverted > .timeline-panel:after{border-left-width:0;border-right-width:14px;left:-14px;right:auto}
+.timeline-panel.pull-right{float:right!important}
+img{max-width:100%}
+@media(max-width:991px) {.timeline > li:before{top:26%;bottom:-35%}
+.timeline-panel h3{margin-top:13%;font-size:16px}
+.timeline-panel p{font-size:12px}
+.timeline > li:first-child:before{top:18%;bottom:-30%}
+}
+@media (max-width: 767px) {
+.timeline > li:first-child .centerDot{top:18px}
+.timeline > li:before{top:70px;bottom:-30px;margin-top:20px;left:0}
+.timeline > li:first-child:before{top:55px;bottom:-30px}
+.timeline > li:first-child .timeline-panel h3{margin-top:0}
+.timeline > li .timeline-panel h3{margin-top:0}
+ul.timeline{padding:0;margin:0}
+ul.timeline:before{left:9px}
+.timeline > li + li{margin-top:10px;margin-bottom:10px}
+ul.timeline > li > .timeline-panel{width:calc(100% - 45px);width:-moz-calc(100% - 45px);width:-webkit-calc(100% - 45px);padding:15px;float:right}
+.bulletedList > li{padding-left:0;padding-right:0}
+.text-format br{display:none}
+}
+@media(max-width:575px) {
+.title_img,.subtitle,.custom_ptag,.about-content .title-format{text-align:center}
+.centerDot{left:25px;height:35px;width:35px;border:4px #eee solid;margin-left:-23px;font-size:14px;line-height:27px}
+.timeline > li:first-child:before{top:21px}
+.timeline > li:before{left:18px;margin-top:40px;width:4px;top:37px}
+}

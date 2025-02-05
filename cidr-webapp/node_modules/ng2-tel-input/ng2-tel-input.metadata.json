@@ -1,0 +1,1 @@
+[{"__symbolic":"module","version":4,"metadata":{},"exports":[{"from":"./src/ng2-tel-input.module","export":["Ng2TelInputModule"]},{"from":"./src/ng2-tel-input","export":["Ng2TelInput"]}]}]

@@ -1,0 +1,87 @@
+<!-- <app-loader [isLoading]="isLoading"></app-loader> -->
+<div class="row page-titles">
+  <div class="col-md-12 align-self-center">
+    <h4 class="text-themecolor">ContactUS Listing</h4>
+  </div>
+</div>
+
+<form #search="ngForm" (ngSubmit)="onClickSubmit(search.value)">
+  <div class="row page-titles">
+    <div class="col-md-10"><input type="text" class="form-control" name="keyword" id="name" placeholder="Search by name, email and subject"
+      [(ngModel)]="keyword"></div>
+    <div class="col-md-1"><button type="submit" class="btn btn-success">Submit</button></div>
+    <div class="col-md-1"><button type="button" class="btn btn-default" (click)="clear()">Clear</button></div>
+  </div>
+</form>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="table-responsive m-t-40">
+          <table class="table table-hover" #mf="mfDataTable" [mfData]="items" [mfRowsOnPage]="rowsOnPage"
+            [mfActivePage]="activePage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder" (mfOnPageChange)="onPageChange($event)">
+            <thead>
+              <tr class="w-70">
+                <th>
+                  <mfDefaultSorter by="name">Name</mfDefaultSorter>
+                </th>
+                <th>
+                  <mfDefaultSorter by="email">Email</mfDefaultSorter>
+                </th>
+                <th>
+                  <mfDefaultSorter by="subject">Subject</mfDefaultSorter>
+                </th>
+                <th>
+                  <mfDefaultSorter by="message">Message</mfDefaultSorter>
+                </th>
+                <!-- <th class="center-align w-10">Actions</th> -->
+              </tr>
+            </thead>
+            <tbody *ngIf="mf.data.length > 0">
+              <ng-template ngFor let-item [ngForOf]="mf.data" let-i="index">
+                <tr>
+                  <td class="w-70 capitalize">
+                    <span class="list-enq-name">{{item.name | titlecase}}</span>
+                  </td>
+                  <td class="w-70 capitalize">
+                    <span class="list-enq-name">{{item.email | titlecase}}</span>
+                  </td>
+                  <td class="w-70 capitalize">
+                    <span class="list-enq-name">{{item.subject | titlecase}}</span>
+                  </td>
+                  <td class="w-70 capitalize">
+                    <span class="list-enq-name">{{item.message | titlecase}}</span>
+                  </td>
+                  <!-- <td class="center-align w-10">
+                    <span>
+                      <a href="javascript:void(0)" routerLink="/dashboard/superadmin/contactUs/{{item._id}}" class="statusrow"
+                        ui-toggle-class="" title="View Message">
+                        <i class="fa fa-eye "></i>
+                      </a>
+                      <button>Reply</button>
+                    </span>
+                  </td> -->
+                </tr>
+              </ng-template>
+            </tbody>
+            <tfoot *ngIf="mf.data.length > 0">
+              <tr>
+                <td colspan="6">
+                  <mfBootstrapPaginator [rowsOnPageSet]="rowsInTable" class="footer-page"></mfBootstrapPaginator>
+                </td>
+              </tr>
+            </tfoot>
+            <tfoot *ngIf="mf.data.length === 0">
+              <tr>
+                <td colspan="12" class="text-center">
+                  <label class="record-label">No record found </label>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

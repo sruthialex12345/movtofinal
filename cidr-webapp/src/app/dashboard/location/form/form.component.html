@@ -1,0 +1,55 @@
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+      <h4 class="text-themecolor">{{ isEditable ? "Edit" : "Add New" }} Location</h4>
+    </div>
+    <div class="col-md-7 align-self-center text-right">
+      <div class="d-flex justify-content-end align-items-center tab-float-left">
+        <button *ngIf ="!isEditable" type="submit" class="btn btn-success" (click)="createItem()">Submit</button>
+        <button *ngIf ="isEditable" type="submit" class="btn btn-success" (click)="updateItem()">Update</button>
+        <button type="button" class="btn btn-inverse back-space" routerLink="/dashboard/locations">Back</button>
+      </div>
+    </div>
+  </div>
+  <!-- Row -->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <!-- <form [formGroup]="addEditForm" (ngSubmit)="save()"> -->
+            <div class="form-body">
+              <h3 class="card-title">Location</h3>
+              <hr>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="control-label">Enter Name</label><br>
+                    <input type="text" placeholder="Enter name" [(ngModel)]="name" (change)="addName(nm.value)" #nm class="radius"/>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="control-label">Enter Radius in Miles</label><br>
+                    <input type="text" placeholder="Enter radius in Miles" [(ngModel)]="radius" min="0" (change)="radiusAdd(rad.value)" pattern="[0-9]+" #rad class="radius"/>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="control-label">Select Location</label>
+                    <ng4geo-autocomplete
+                    [(ngModel)]="userSettings.inputString"
+                    name="point"
+                    ngDefaultControl
+                    [userSettings]="userSettings"
+                    (componentCallback)="autoCompleteCallback1($event)"
+                    value=""
+                  ></ng4geo-autocomplete>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!-- </form> -->
+        </div>
+      </div>
+    </div>
+  </div>
+

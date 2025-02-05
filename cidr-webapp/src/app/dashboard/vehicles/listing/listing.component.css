@@ -1,0 +1,8 @@
+.vehicle-space{padding: 5px;}
+.table th, .table td{ white-space: nowrap;}
+
+@media screen and (max-width: 767px){
+    .page-titles select{
+        margin-top: 10px;
+    }
+}

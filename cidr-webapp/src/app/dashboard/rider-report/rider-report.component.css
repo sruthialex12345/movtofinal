@@ -1,0 +1,25 @@
+.button{
+    margin: 7px;
+}
+.mg-1 {
+  margin-left: -108px;
+}
+.mg-3 {
+  margin-left: -50px;
+}
+@media screen and (max-width: 991px){
+  .mg-1 {
+    margin-left: 0px;
+  }
+  .mg-3 {
+    margin-left: 0px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .mg-1 {
+    margin-left: 0px;
+  }
+  .mg-3 {
+    margin-left: 0px;
+  }
+}

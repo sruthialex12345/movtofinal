@@ -1,0 +1,31 @@
+<app-main-header></app-main-header>
+
+<!-- ============================================================== -->
+<!-- Main wrapper -->
+<!-- ============================================================== -->
+<!-- Main wrapper -->
+<div class="about-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center">
+        <h2 class="banner-title">Blogs</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="static-content">
+  <div class="container">
+      <div class="row">
+        <ul style="list-style-type:none">
+          <li *ngFor="let blog of blogs;let i=index">
+            <section>
+              <a href="blog/{{blog.slug}}" ><p [innerHTML]="blog.heading"></p></a>
+            </section>
+          </li>
+        </ul>
+      </div>
+  </div>
+</section>
+
+<app-main-footer></app-main-footer>

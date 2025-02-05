@@ -1,0 +1,90 @@
+<!-- <app-loader [isLoading]="isLoading"></app-loader> -->
+<div class="row page-titles">
+  <div class="col-md-2 align-self-center">
+    <h4 class="text-themecolor">Faq Listing</h4>
+  </div>
+</div>
+<form #search="ngForm" (ngSubmit)="onClickSubmit(search.value)">
+    <div class="row page-titles">
+        <div class="col-md-8"><input type="text" class="form-control" name="keyword" id="name" placeholder="Search by Question, Answer"
+          [(ngModel)]="keyword"></div>
+        <div class="col-md-1"><button type="submit" class="btn btn-success">Submit</button></div>
+        <div class="col-md-1"><button type="button" class="btn btn-default" (click)="clear()">Clear</button></div>
+        <div class="col-md-1"> <button routerLink="/dashboard/superadmin/faq/new" class="btn btn-primary">
+          Add Faq
+        </button></div>
+      </div>
+  </form>
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="table-responsive m-t-40">
+          <table class="table table-hover" #mf="mfDataTable" [mfData]="items" [mfRowsOnPage]="rowsOnPage"
+            [mfActivePage]="activePage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder" (mfOnPageChange)="onPageChange($event)">
+            <thead>
+              <tr class="w-70">
+                <th>
+                  <mfDefaultSorter by="name">Question</mfDefaultSorter>
+                </th>
+                <th>
+                  <mfDefaultSorter by="email">Answer</mfDefaultSorter>
+                </th>
+                <th class="center-align w-10">Action</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="mf.data.length > 0">
+              <ng-template ngFor let-item [ngForOf]="mf.data" let-i="index">
+                <tr>
+
+                  <td width=30% class="capitalize">
+                    <span class="list-enq-name " [innerHTML] = "item.question"></span>
+                  </td>
+
+                  <td width=50% class="capitalize" [innerHTML] = "item.answer"></td>
+                  <td width=20% class="center-align">
+                      <span>
+                      <a title="Edit" routerLink="/dashboard/superadmin/faq/{{item._id}}/edit" class="superadmin-space statusrow"
+                      ui-toggle-class="" ><button class="btn btn-dark btn-sm"><i class="fa fa-pencil"></i></button></a>
+                    </span>                    
+                    <span *ngIf="item.status">
+                      <a href="javascript:void(0)" (click)="updateStatus(item._id,false)" class="superadmin-space statusrow"
+                        ui-toggle-class="" title="Activate faq">
+                        <button class="btn btn-sm" style="color:green"> <i class="fa fa-check "></i></button>
+                      </a>
+                    </span>
+                    <span *ngIf="!item.status">
+                      <a href="javascript:void(0)" (click)="updateStatus(item._id,true)" class="superadmin-space statusrow deactive"
+                        ui-toggle-class="" title="Activate faq">
+                        <button class="btn btn-sm" style="color:gray"> <i class="fa fa-circle "></i></button>
+                      </a>
+                    </span>
+                    <span><a title="Delete" [swal]="{showCancelButton: true,confirmButtonText: 'Yes',title: 'Are you sure that you want to delete'}" (confirm)="removeItem1(item._id)" style="cursor:pointer;"><button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button></a>
+                    </span> 
+                  </td>
+                </tr>
+              </ng-template>
+            </tbody>
+            <tfoot *ngIf="mf.data.length > 0">
+              <tr>
+                <td colspan="6">
+                  <mfBootstrapPaginator [rowsOnPageSet]="rowsInTable" class="footer-page"></mfBootstrapPaginator>
+                </td>
+              </tr>
+            </tfoot>
+            <tfoot *ngIf="mf.data.length === 0">
+              <tr>
+                <td colspan="12" class="text-center">
+                  <label class="record-label">No record found </label>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<swal #deleteSwal title='Are you sure that you want to delete this ?' type='warning' showCancelButton="true"
+  confirmButtonText='Yes'></swal>

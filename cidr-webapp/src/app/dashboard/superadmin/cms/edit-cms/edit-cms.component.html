@@ -1,0 +1,105 @@
+<div class="row page-titles">
+  <div class="col-md-5 align-self-center">
+    <h4 class="text-themecolor">{{ isEditable ? "Edit" : "Add New" }} Page</h4>
+  </div>
+  <div class="col-md-7 align-self-center text-right">
+    <div class="d-flex justify-content-end align-items-center">
+      <button type="submit" class="btn btn-success" (click)="save()">{{ isEditable ? "Update" : "Submit" }}</button>
+      <button type="button" class="btn btn-inverse back-space" routerLink="/dashboard/superadmin/cms">Back</button>
+     </div>
+  </div>
+</div>
+
+<!-- edit driver route modal content -->
+
+<!-- /.modal -->
+
+<!-- sample modal content -->
+<!--  -->
+<!-- /.modal -->
+
+<!-- Row -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup]="addEditForm" (ngSubmit)="save()">
+          <div class="form-body">
+            <h3 class="card-title">Page Info</h3>
+            <hr>
+            <div class="row p-t-20">
+              <div class="col-md-12" *ngIf="contectFlag">
+                <div class="form-group">
+                  <label class="control-label">Title</label>
+                  <input formControlName="heading" [ngClass]="{ 'form-control-danger': submitted && f.heading.errors }" type="text" id="name"
+                    class="form-control" placeholder="John">
+
+                  <div *ngIf="submitted && f.heading.errors" class="form-control-feedback">
+                    <div *ngIf="f.heading.errors.required">Title is required</div>
+                    <div *ngIf="f.heading.errors?.pattern">Title is invalid</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12" *ngIf="contectFlag">
+                <div class="form-group" >
+                  <label class="control-label">Content</label>
+                  <span >
+                      <p-editor formControlName="content" [style]="{'height':'320px'}"></p-editor>
+                      <!-- <input formControlName="content" [ngClass]="{ 'form-control-danger': submitted && f.email.errors }" type="text" id="email"
+                      class="form-control form-control-danger" placeholder="johdoe@gmail.com"> -->
+                  </span>
+                  <div *ngIf="submitted && f.content.errors" class="form-control-feedback">
+                    <div *ngIf="f.content.errors.required">Content is required</div>
+                  </div>
+                  <!-- <small class="form-control-feedback"> This field has error. </small>  -->
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="control-label">Meta Title</label>
+                  <input formControlName="title" [ngClass]="{ 'form-control-danger': submitted && f.title.errors }" type="text" id="name"
+                    class="form-control" placeholder="John">
+
+                  <div *ngIf="submitted && f.title.errors" class="form-control-feedback">
+                    <div *ngIf="f.title.errors.required">Meta title is required</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="control-label">Meta Description</label>
+                  <textarea formControlName="description" [ngClass]="{ 'form-control-danger': submitted && f.description.errors }" type="textarea" id="name"
+                    class="form-control" placeholder="John"></textarea>
+                  <div *ngIf="submitted && f.description.errors" class="form-control-feedback">
+                    <div *ngIf="f.description.errors.required">Meta Description is required</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="control-label">Meta Keywords</label>
+                  <input formControlName="keywords" [ngClass]="{ 'form-control-danger': submitted && f.keywords.errors }" type="text" id="name"
+                    class="form-control" placeholder="keywords with commas seprated ">
+                  <div *ngIf="submitted && f.keywords.errors" class="form-control-feedback">
+                    <div *ngIf="f.keywords.errors.required">Meta Keywords are required</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="control-label">Author</label>
+                  <input formControlName="author" [ngClass]="{ 'form-control-danger': submitted && f.author.errors }" type="text" id="name"
+                    class="form-control" placeholder="keywords with commas seprated ">
+
+                  <div *ngIf="submitted && f.author.errors" class="form-control-feedback">
+                    <div *ngIf="f.author.errors.required">Author is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

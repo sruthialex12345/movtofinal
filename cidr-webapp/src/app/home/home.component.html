@@ -1,0 +1,400 @@
+<!-- ============================================================== -->
+<!-- Header -->
+<!-- ============================================================== -->
+<app-main-header></app-main-header>
+
+<!-- ============================================================== -->
+<!-- Main wrapper -->
+<!-- ============================================================== -->
+<div class="home-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <div class="wrap575">
+                    <h2>Streamline Your <br>Shuttles and Save</h2>
+                    <p>CircularDrive brings the convenience of popular ride sharing apps to your shuttle operation. Customers easily request for shuttles. Drivers easily find them. Management sees it all.</p>
+                    <a routerLink="/partner" class="learn-more" ><span>Learn More</span></a>
+                    <a routerLink="/join-our-partner-network" class="signup" ><span>Request Demo</span></a>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 hide-sm text-center">
+              <a href="javascript:;" data-toggle="modal" data-target="#videoModalPopup"><img src="../../assets/images/home-1.png" alt="mobile screenshot" /></a>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="videoModalPopup" tabindex="-1" role="dialog" aria-labelledby="videoModalPopupLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="stopVideo()"><span aria-hidden="true">&times;</span></button>
+          <iframe width="{{innerWidth}}" #vido height="{{innerHeight}}" src="https://www.youtube.com/embed/DWbGExqCZ1o?start=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+</div>
+
+<section class="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="title-format text-center">Benefits to Shuttle Providers</h2>
+                </div>
+            </div>
+            <div class="row all-features">
+                <div class="col-lg-6">
+                    <div class="feature-list">
+                        <div class="media">
+                          <div class="image mr-3">
+                              <img src="../../assets/images/phone-green.png" alt="call icon - circular drive">
+                          </div>
+                            <div class="media-body">
+                              <h3 class="mt-0">Eliminate 90+% of phone call requests</h3>
+                              Book Shuttles, drivers accept, admin provides chat support.
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="feature-list">
+                        <div class="media">
+                            <div class="image mr-3">
+                                <img src="../../assets/images/gas-green.png" alt="Generic placeholder image">
+                            </div>
+                            <div class="media-body">
+                              <h3 class="mt-0">Save gas from unnecessary trips</h3>
+                              Send shuttles only when customers are waiting. Find customers easier and faster.
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="feature-list">
+                        <div class="media">
+                            <div class="image mr-3">
+                                <img src="../../assets/images/track-green.png" alt="Generic placeholder image">
+                            </div>
+                            <div class="media-body">
+                              <h3 class="mt-0">Track drivers, vehicles, riders, and wait times</h3>
+                              See your shuttle operations and take control with admin tools and reports.
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="feature-list">
+                        <div class="media">
+                            <div class="image mr-3">
+                                <img src="../../assets/images/feedback-green.png" alt="Generic placeholder image">
+                            </div>
+                            <div class="media-body">
+                              <h3 class="mt-0">Use feedback and analytics to improve efficiency</h3>
+                              Optimize driver schedules, routes and more with keen insights into shuttle operations.
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="feature-list">
+                        <div class="media">
+                            <div class="image mr-3">
+                                <img src="../../assets/images/chat-green.png" alt="Generic placeholder image">
+                            </div>
+                            <div class="media-body">
+                              <h3 class="mt-0">Chat with drivers and riders</h3>
+                              Safer communication tools for drivers. More convenient service for customers.
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <div class="about-watch-video">
+            <div class="container">
+              <div class="row">
+                <div class="col-12 col-sm-6 align-self-center video-block-content">
+                  <h2 class="title-format white-color">Streamlined Shuttles. <br>Satisfied Customers.</h2>
+                  <p class="text-format white-color-alpha">Streamlined shuttles mean smoother operations, better customer service and greater efficiency.</p>
+                  <p class="text-format white-color-alpha">We make life easier for businesses, customers, dispatchers and drivers by making it dead simple to call a shuttle and be picked up.</p>
+                </div>
+                <div class="col-12 col-sm-6">
+                  <figure>
+                    <!-- <img src="../../assets/images/about-video-frame.png" alt="video-frame"> -->
+                    <!-- <img src="../../assets/images/logo-vertical.png" alt="circular drive logo"> -->
+
+                    <!-- <a href="javascript:;" data-toggle="modal" data-target="#videoModalPopup"><img src="../../assets/images/about-video-play-button.png" alt="play button"></a> -->
+                  <!-- </figure>
+                </div>
+              </div>
+            </div>
+          </div> -->
+<!-- <section class="about-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 class="title-format text-center">Benefits to Shuttle Operators</h2>
+            </div>
+        </div>
+        <div class="shuttle-operator-benifits">
+            <div class="row">
+                <div class="col text-center">
+                    <div class="step-count">
+                        <span>1</span>
+                    </div>
+                    <div class="icon">
+                        <img src="../../assets/images/phone-icon.png" alt="phone" />
+                    </div>
+                    <div class="desc">
+                        <p>Eliminate 90+% of phone call requests</p>
+                    </div>
+                </div>
+                <div class="col text-center">
+                        <div class="step-count">
+                            <span>2</span>
+                        </div>
+                        <div class="icon">
+                            <img src="../../assets/images/gas-icon.png" alt="phone" />
+                        </div>
+                        <div class="desc">
+                            <p>Save gas from unnecessary trips</p>
+                        </div>
+                    </div>
+                    <div class="col text-center">
+                            <div class="step-count">
+                                <span>3</span>
+                            </div>
+                            <div class="icon">
+                                <img src="../../assets/images/location-icon.png" alt="phone" />
+                            </div>
+                            <div class="desc">
+                                <p>Track drivers, vehicles, riders and wait times</p>
+                            </div>
+                        </div>
+                        <div class="col text-center">
+                                <div class="step-count">
+                                    <span>4</span>
+                                </div>
+                                <div class="icon">
+                                    <img src="../../assets/images/chat-icon.png" alt="phone" />
+                                </div>
+                                <div class="desc">
+                                    <p>Chat with drivers and riders</p>
+                                </div>
+                            </div>
+                            <div class="col text-center">
+                                    <div class="step-count">
+                                        <span>5</span>
+                                    </div>
+                                    <div class="icon">
+                                        <img src="../../assets/images/feedback-icon.png" alt="phone" />
+                                    </div>
+                                    <div class="desc">
+                                        <p>Use feedback and analytics to improve efficiency</p>
+                                    </div>
+                                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+
+<section class="about-content gray-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="title-format text-center">Benefits to Drivers</h2>
+                </div>
+            </div>
+            <div class="shuttle-operator-benifits driver-benifits">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="block">
+                            <div class="step-count">
+                                <span>1</span>
+                            </div>
+                            <div class="icon">
+                                <img src="../../assets/images/gps-icon.png" alt="phone" />
+                            </div>
+                            <div class="desc">
+                                <p>Get rider alerts and see pickup locations via GPS</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                            <div class="block">
+                                <div class="step-count">
+                                    <span>2</span>
+                                </div>
+                                <div class="icon">
+                                    <img src="../../assets/images/confusion-icon.png" alt="phone" />
+                                </div>
+                                <div class="desc">
+                                    <p>Avoid confusion, deal with happier passengers</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 text-center">
+                                <div class="block">
+                                    <div class="step-count">
+                                        <span>3</span>
+                                    </div>
+                                    <div class="icon">
+                                        <img src="../../assets/images/saftey-icon.png" alt="phone" />
+                                    </div>
+                                    <div class="desc">
+                                        <p>Increase safety by eliminating phone calls with passengers</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 text-center">
+                                    <div class="block">
+                                        <div class="step-count">
+                                            <span>4</span>
+                                        </div>
+                                        <div class="icon">
+                                            <img src="../../assets/images/card-icon.png" alt="phone" />
+                                        </div>
+                                        <div class="desc">
+                                            <p>Accept credit card tips!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                </div>
+                <figure class="driver-benifits-screens text-center"><img src="../../assets/images/home-for-drivers.png" alt="map - circular drive"/></figure>
+            </div>
+        </div>
+    </section>
+
+
+<!-- <div class="about-for-rider">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-10 offset-sm-1  col-lg-7 col-xl-5">
+        <h2 class="title-format">For Riders</h2>
+        <p class="text-format">New riders install the CircularDrive app, search for the right shuttle provider, fill in the “to” and “from” locations, and book it. No payments or confidential information is asked for or given- CircularDrive is safe, secure, and simple.</p>
+        <p class="text-format">The booking request is sent to one or more shuttle drivers, based on CircularDrive’s built-in intelligence to provide the best experience. As soon as driver accepts the request the rider can see the real-time view of vehicle to have an accurate estimated arrival time, along with pictures of the driver and vehicle. </p>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- <section class="about-content passengers-benefits">
+        <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2 class="title-format text-center">Benefits to Passengers</h2>
+                    </div>
+                </div>
+                <div class="shuttle-operator-benifits">
+                    <div class="row">
+                        <div class="col text-center bdr-right">
+                            <div class="step-count">
+                                <span>1</span>
+                            </div>
+                            <div class="icon">
+                                <img src="../../assets/images/request-rides-icon.png" alt="request-rides-icon" />
+                            </div>
+                            <div class="desc">
+                                <p>Easily request rides</p>
+                            </div>
+                        </div>
+                        <div class="col text-center bdr-right">
+                                <div class="step-count">
+                                    <span>2</span>
+                                </div>
+                                <div class="icon">
+                                    <img src="../../assets/images/track-icon.png" alt="track-icon" />
+                                </div>
+                                <div class="desc">
+                                    <p>Track shuttle arrival with GPS</p>
+                                </div>
+                            </div>
+                            <div class="col text-center bdr-right">
+                                    <div class="step-count">
+                                        <span>3</span>
+                                    </div>
+                                    <div class="icon">
+                                        <img src="../../assets/images/alert-icon.png" alt="alert-icon" />
+                                    </div>
+                                    <div class="desc">
+                                        <p>Receive delay alerts</p>
+                                    </div>
+                                </div>
+                                <div class="col text-center bdr-right">
+                                        <div class="step-count">
+                                            <span>4</span>
+                                        </div>
+                                        <div class="icon">
+                                            <img src="../../assets/images/safety-icon-green.png" alt="safety-icon" />
+                                        </div>
+                                        <div class="desc">
+                                            <p>Safety features (Driver photo, etc.)</p>
+                                        </div>
+                                    </div>
+                                    <div class="col text-center">
+                                            <div class="step-count">
+                                                <span>5</span>
+                                            </div>
+                                            <div class="icon">
+                                                <img src="../../assets/images/chat-icon-green.png" alt="chat-icon" />
+                                            </div>
+                                            <div class="desc">
+                                                <p>Chat with dispatch</p>
+                                            </div>
+                                        </div>
+                    </div>
+                </div>
+            </div>
+</section>     -->
+
+<!-- <div class="about-for-driver">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-10 offset-sm-1 text-center">
+        <h2 class="title-format">For Driver</h2>
+        <p class="text-format">The driver receives the booking request from riders and driver has an option to accept or skip the request if the shuttle is full or if any maintenance issue.  Also driver can accept bulk requests based on destinations of specific destination or all locations.
+          When people getting into vehicle without making a booking, driver has an ability to can add the rider details, that helps to track the number of riders were served during the trip.</p>
+        <p class="text-format">Driver has an ability to activate the shuttle when he starts to the work and same way at the end of the day, driver deactivate himself or office administrator can do as well.  At that moment all the accepted ride requests transformed to next available driver and notification sent to riders.
+          Drivers has an ability to chat with administrator for any changes or special updates.</p>
+        <figure><img src="../../assets/images/home-for-drivers.png" alt="map - circular drive"/></figure>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- <section class="app-screenshot text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="title-format">App Screenshot</h2>
+                <!-- <p class="text-format">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum hasbeen the industry's standard dummy text ever since the 1500s,</p> -->
+                <!-- <figure><img src="../../assets/images/home-screenshot.png" alt="app screenshot"></figure> -->
+            <!-- </div>
+        </div>
+    </div>
+</section> -->
+
+<!-- need to add partners once client will have and client requests to add so -->
+
+<!-- <section class="our-partner">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-8 col-md-6 align-self-center">
+                <h2 class="title-format">Our Partner</h2>
+                <p class="text-format">CircularDrive is proud to collaborate with established shuttle providers, transport companies, and hotels to help streamline and ease their conveyance of passengers. All partners are well better and have been proven to be reliable, trustworthy service providers; hence our partnership with them. </p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-md-6">
+              <figure><img src="../../assets/images/social-partner.png" alt="app screenshot"></figure>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+
+
+
+<!-- ============================================================== -->
+<!-- Footer -->
+<!-- ============================================================== -->
+<app-main-footer></app-main-footer>

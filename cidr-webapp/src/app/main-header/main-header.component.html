@@ -1,0 +1,36 @@
+<header [className]="(this.currentUrl ==='/register' || this.currentUrl === '/contact-us' || this.currentUrl === '/join-our-partner-network') ? 'main-header':'main-header bg-header'">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <a href="javascript:;" routerLink="/" class="pull-left navbar-brand">
+          <h1><img src="../../assets/images/logo-circular-drive.svg" width="191" height="77" alt="circular drive logo" /></h1>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span> </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item"><a [ngClass]="{'active-link': currentUrl === '/about-us'}" class="nav-link" routerLink="/about-us" href="javascript:;">About Us</a></li>
+              <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': currentUrl === '/riders'}" routerLink="/riders" href="javascript:;">Riders</a></li>
+              <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': currentUrl === '/partner'}" routerLink="/partner">Partners</a></li>
+              <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': currentUrl === '/services'}" routerLink="/contact-us" href="javascript:;">Contact</a></li>
+              <!-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" [ngClass]="{'active-link': currentUrl === '/partner'}" href="javascript:;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Partners</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="javascript:;" routerLink="/partner"><i class="fa fa-angle-right" aria-hidden="true"></i> &nbsp;Hotels</a>
+                  <a class="dropdown-item" href="javascript:;" routerLink="/partner"><i class="fa fa-angle-right" aria-hidden="true"></i> &nbsp;Rental Car Companies</a>
+                  <a class="dropdown-item" href="javascript:;" routerLink="/partner"><i class="fa fa-angle-right" aria-hidden="true"></i> &nbsp;Long Term Parking Services</a>
+                </div>
+              </li> -->
+
+              <li class="nav-item nav-button"><a routerLink="/login/auth" [ngClass]="{'active-link-button': currentUrl === '/login/auth'}" class="nav-link" href="javascript:;">Login</a></li>
+              <li class="nav-item nav-button"><a routerLink="/register" [ngClass]="{'active-link-button': currentUrl === '/register'}" class="nav-link fill-btn" href="javascript:;">Try for Free</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+</header>

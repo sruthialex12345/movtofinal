@@ -1,0 +1,49 @@
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">Route Details</h4>
+      </div>
+    <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <form [formGroup]="addEditForm">
+              <div class="form-body">
+                <div class="row p-t-20">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">Location:</label>
+                      <select aria-placeholder="select" formControlName="locationId" class="form-control" >
+                        <option value=''>Select Location</option>
+                        <option *ngFor="let loc of locations;let i=index" value={{loc._id}}>{{loc.zone.formattedAddress}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">Name : </label>
+                      <input formControlName="name" type="text" id="name"
+                        class="form-control" readonly="readonly">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    <div class="col-lg-12">
+    <agm-map *ngIf=showmap
+    [latitude]="lat"
+    [longitude]="lng"
+    [zoom]="zoom"
+    [disableDefaultUI]="false"
+    [zoomControl]="false">
+    <agm-direction
+    [origin]="origin"
+    [destination]="destination"
+    [waypoints]="waypoints"
+    [renderOptions]="renderOptions">
+    </agm-direction>  </agm-map>
+  </div>
+</div>
+
+

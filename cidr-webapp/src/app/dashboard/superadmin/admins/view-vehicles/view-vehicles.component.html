@@ -1,0 +1,80 @@
+<div class="row page-titles">
+    <div class="col-md-6 align-self-center">
+      <h4 class="text-themecolor">Vehicles Listing</h4>
+    </div>
+    <div class="col-md-6 align-self-center">
+            <div class="d-flex justify-content-end align-items-center">
+              <button type="button" class="btn btn-inverse" (click)="backTo()">Back</button>
+            </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive m-t-40">
+            <table class="table table-hover" #mf="mfDataTable" [mfData]="items" [mfRowsOnPage]="rowsOnPage"
+              [mfActivePage]="activePage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder" (mfOnPageChange)="onPageChange($event)">
+              <thead>
+                <tr class="w-70">
+                  <th>
+                    <mfDefaultSorter by="name">Name</mfDefaultSorter>
+                  </th>
+                  <th>
+                    <mfDefaultSorter by="company">Company</mfDefaultSorter>
+                  </th>
+                  <th>
+                    <mfDefaultSorter by="regNo">Registration</mfDefaultSorter>
+                  </th>
+                  <th>
+                    <mfDefaultSorter by="vehicleNo">Vehicle No.</mfDefaultSorter>
+                  </th>
+                  <th>
+                    <mfDefaultSorter by="carModel">Model</mfDefaultSorter>
+                  </th>
+                  <th>
+                    <mfDefaultSorter by="type">Type</mfDefaultSorter>
+                  </th>
+                  <th>
+                    <mfDefaultSorter by="color">Color</mfDefaultSorter>
+                  </th>
+                </tr>
+              </thead>
+              <tbody *ngIf="mf.data.length > 0">
+                <ng-template ngFor let-item [ngForOf]="mf.data" let-i="index">
+                  <tr>
+  
+                    <td class="w-70 capitalize">
+                      <span class="list-enq-name">{{item.name | titlecase}}</span>
+                    </td>
+                    <td class="w-70 capitalize">
+                      <span class="list-enq-name">{{item.company | titlecase}}</span>
+                    </td>
+                    <td class="w-70 capitalize">{{item.regNo}}</td>
+                    <td class="w-70 capitalize">{{item.vehicleNo}}</td>
+                    <td class="w-70 capitalize">{{item.carModel}}</td>
+                    <td class="w-70 capitalize">{{item.type | titlecase}}</td>
+                    <td class="w-70 capitalize">{{item.color}}</td>
+                  </tr>
+                </ng-template>
+              </tbody>
+              <tfoot *ngIf="mf.data.length > 0">
+                <tr>
+                  <td colspan="6">
+                    <mfBootstrapPaginator [rowsOnPageSet]="rowsInTable" class="footer-page"></mfBootstrapPaginator>
+                  </td>
+                </tr>
+              </tfoot>
+              <tfoot *ngIf="mf.data.length === 0">
+                <tr>
+                  <td colspan="12" class="text-center">
+                    <label class="record-label">No record found </label>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

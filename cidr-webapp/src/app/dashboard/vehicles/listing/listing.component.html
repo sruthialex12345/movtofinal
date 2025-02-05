@@ -1,0 +1,103 @@
+<app-loader [isLoading]="isLoading"></app-loader>
+<div class="row page-titles">
+  <div class="col-md-2 align-self-center">
+    <h4 class="text-themecolor">Vehicles</h4>
+  </div>
+  <div class="col-md-5 align-self-center">
+      <select id=""  class="form-control" [(ngModel)]='selectedLocation' (change)="onChange($event.target.value)">
+          <option value=''>Select Location</option>
+          <option *ngFor="let loc of locations;let i=index"  value={{loc._id}}>{{loc.name}}, {{loc.zone.formattedAddress}}</option>
+        </select>
+  </div>
+  <div class="col-md-5 align-self-center text-right">
+    <div class="d-flex justify-content-end align-items-center">
+      <button type="button" class="btn btn-info tab-float-left m-l-15"
+      routerLink="/dashboard/vehicles/new">
+        <i class="fa fa-plus-circle"></i> Add Vehicle</button>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <!-- <h4 class="card-title">Data Export</h4> -->
+        <div class="table-responsive m-t-40">
+          <table class="table table-hover" #mf="mfDataTable" [mfData]="items" [mfRowsOnPage]="rowsOnPage" [mfActivePage]="activePage"
+            [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder" (mfOnPageChange)="onPageChange($event)">
+            <thead>
+              <tr class="w-70">
+                <th>
+                  <mfDefaultSorter by="name">Name</mfDefaultSorter>
+                </th>
+                <th>
+                    <mfDefaultSorter by="company">Make</mfDefaultSorter>
+                  </th>
+                  <th>
+                    <mfDefaultSorter by="regNo">Registration</mfDefaultSorter>
+                  </th>
+                  <th>
+                    <mfDefaultSorter by="vehicleNo">License Plate</mfDefaultSorter>
+                  </th>
+                  <th>
+                    <mfDefaultSorter by="carModel">Model</mfDefaultSorter>
+                  </th>
+                  <!-- <th>
+                    <mfDefaultSorter by="type">Type</mfDefaultSorter>
+                  </th>
+                  <th>
+                    <mfDefaultSorter by="color">Color</mfDefaultSorter>
+                  </th> -->
+                <th class="center-align w-10">Action</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="mf.data.length > 0">
+              <ng-template ngFor let-item [ngForOf]="mf.data" let-i="index">
+
+                <tr>
+                  <td class="w-70 capitalize"><a title="Edit" routerLink="/dashboard/vehicles/{{item._id}}/edit" class="vehicle-space">
+                    {{item.name | titlecase}}
+                  </a></td>
+                  <td class="w-70 capitalize">
+                      <span class="list-enq-name">{{item.company | titlecase}}</span>
+                    </td>
+                    <td class="w-70 capitalize">{{item.regNo}}</td>
+                    <td class="w-70 capitalize">{{item.vehicleNo}}</td>
+                    <td class="w-70 capitalize">{{item.carModel}}</td>
+                    <!-- <td class="w-70 capitalize">{{item.type | titlecase}}</td> -->
+                    <!-- <td class="w-70 capitalize">{{item.color}}</td> -->
+
+                  <td class="center-align w-10">
+                    <a title="Edit" routerLink="/dashboard/vehicles/{{item._id}}/edit" class="vehicle-space">
+                      <button class="btn btn-dark btn-sm"><i class="fa fa-pencil"></i></button>
+                    </a>
+                    <a title="Delete" [swal]="{showCancelButton: true,confirmButtonText: 'Yes',title: 'Are you sure that you want to delete '+ item.name +'?',type: 'warning'}"
+                      (confirm)="removeItem1(item)">
+                      <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                    </a>
+                  </td>
+                </tr>
+              </ng-template>
+            </tbody>
+            <tfoot *ngIf="mf.data.length > 0">
+              <tr>
+                <td colspan="6">
+                  <mfBootstrapPaginator [rowsOnPageSet]="rowsInTable" class="footer-page"></mfBootstrapPaginator>
+                </td>
+              </tr>
+            </tfoot>
+            <tfoot *ngIf="mf.data.length === 0">
+              <tr>
+                <td colspan="12" class="text-center">
+                  <label class="record-label">No record found </label>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<swal #deleteSwal title='Are you sure that you want to delete this ?' type='warning' showCancelButton="true" confirmButtonText='Yes'></swal>

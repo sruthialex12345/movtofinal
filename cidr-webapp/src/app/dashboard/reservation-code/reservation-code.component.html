@@ -1,0 +1,94 @@
+<app-loader [isLoading]="isLoading"></app-loader>
+<div class="row page-titles">
+  <div class="col-md-3 align-self-center">
+    <h4 class="text-themecolor">Booking Code</h4>
+  </div>
+  <div class="col-md-4 align-self-center">
+    <!-- <form class="app-search d-none d-md-block d-lg-block">
+      <input type="text" placeholder="Search..." class="form-control" (keyup)="searchEquipment($event)" [(ngModel)]="searchTerm" name="searchTerm">
+      <a href="javascript: void();" (click)="searchEquipment($event)"><i class="fa fa-search"></i></a>
+    </form> -->
+  </div>
+  <div class="col-md-5 align-self-center text-right">
+    <div class="d-flex justify-content-end align-items-center">
+      <button type="button" class="btn btn-info tab-float-left m-l-15" (click)="generateCode()"><i class="fa fa-plus-circle" ></i> Generate Booking Code</button>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <!-- <h4 class="card-title">Data Export</h4> -->
+        <div class="table-responsive m-t-40">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th width=60%>
+                  Booking Code
+                </th>
+                <th width=20% class="center-align">Share Code</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="reservationCode != null">
+              <tr>
+                <td width=60% class="capitalize">
+                  <span class="list-enq-name">
+                    {{reservationCode}}
+                  </span>
+                </td>
+                <td width=20% class="center-align ">
+                  <button class="btn btn-primary btn-sm" (click)="openDialog()"><i class="fa fa-envelope"></i></button>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot *ngIf="reservationCode == null">
+              <tr>
+                <td colspan="2" class="text-center">
+                  <label class="record-label">No record found </label>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-dialog [(visible)]="display" [modal]="true" [responsive]="true" [style]="{width: '350px', minWidth: '200px', color: 'red'}" [minY]="50" [maximizable]="false" [baseZIndex]="10000" [closable]="true">
+  <section id="wrapperLogin">
+    <div class="login-register">
+      <div class="login-box card" >
+        <div class="card-body">
+          <form [formGroup]="shareCodeForm" class="form-horizontal form-material">
+           <div class="form-group ">
+              <div class="col-12">
+                  <label>Name</label>
+                <input formControlName="name" [ngClass]="{ 'form-control-danger': submitted && f.name.errors }" class="form-control" type="text" required="">
+              </div>
+              <div *ngIf="submitted && f.name.errors" class="form-control-feedback">
+                <div *ngIf="f.name.errors.required">Name is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-12">
+                <label>Email</label>
+                <input formControlName="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" [ngClass]="{ 'form-control-danger': submitted && f.email.errors }" class="form-control" type="text" required="">
+            </div>
+              <div *ngIf="submitted && f.email.errors" class="form-control-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+                <div *ngIf="f.email.errors.pattern">Email is invalid</div>
+              </div>
+            </div>
+            <div class="form-group login-button">
+              <div class="col-12">
+                <button class="btn btn-block btn-lg btn-info btn-rounded" (click)="shareCode()" type="submit">Share</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</p-dialog>

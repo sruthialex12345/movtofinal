@@ -1,0 +1,174 @@
+.main-header{
+    position:fixed;
+    left:0;
+    right:0;
+    z-index:10;
+    background-color:transparent;
+    padding:27px 0;
+    -webkit-transition:all 0.5s; -moz-transition:all 0.5s; transition:all 0.5s;
+}
+.bg-header.main-header{
+    background-color:rgba(246,207,101,0.80);
+    padding:10px 0;
+    -webkit-box-shadow:0px 0px 5px 0px rgba(0,0,0,0.15);
+    box-shadow:0px 0px 5px 0px rgba(0,0,0,0.15);
+}
+.navbar,.navbar-brand {
+    padding: 0;
+    font-size: 15px;
+}
+.navbar .navbar-nav .nav-item{
+    padding:8px 16px 3px
+}
+.navbar .navbar-nav .nav-link {
+    color: #333;
+    padding: 0 0 5px;
+}
+.navbar .navbar-nav .nav-link:hover {
+    color: #2C9984;
+}
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+    -webkit-box-shadow:0px 0px 30px 0px rgba(0,0,0,0.45);
+    box-shadow:0px 0px 30px 0px rgba(0,0,0,0.45);
+    border-radius: 10px;
+    border:none;
+    padding:15px 25px;
+}
+.dropdown-item {
+    padding: 10px 0;
+    font-size: 14px;
+    color: #2C9984;
+    font-weight: 500;
+}
+.dropdown-item + .dropdown-item {
+    border-top: 1px solid rgba(112,112,112,0.35);
+}
+.dropdown-item:hover {
+    color: #F9CE72;
+    background-color: transparent;
+}
+.dropdown-item i {
+    font-size: 15px
+}
+
+.active-link {
+  border-bottom-color: #333 !important;
+  color: #333 !important;
+}
+.fill-btn{
+    background-color: #333;
+    color: #fff !important;
+}
+
+@media (min-width: 992px){
+    .navbar-expand-lg .navbar-nav .dropdown-menu {
+        left: auto;
+        right: 0;
+    }.navbar .navbar-nav .nav-item:first-child {
+        padding-left: 0;
+    }
+    .navbar .navbar-nav .nav-item:last-child {
+        padding-right: 0;
+    }
+    .dropdown-item:first-child {
+        padding-top: 0;
+    }
+    .dropdown-item:last-child {
+        padding-bottom: 0;
+    }
+    .navbar .navbar-nav .nav-button {
+        padding: 0 8px;
+        margin-top: -5px;
+    }
+    .navbar .navbar-nav .nav-link {
+        border-bottom: 3px solid transparent;
+    }
+    .navbar .navbar-nav .nav-link:hover {
+        border-bottom-color: #333;
+        color: #333;
+    }
+
+    .active-link {
+      border-bottom-color: #333 !important;
+      color: #333 !important;
+    }
+    .navbar .navbar-nav .nav-button .nav-link {
+        border-radius: 20px;
+        padding:0 5px;
+        border:1px solid #333;
+        height: 40px;
+        line-height: 37px;
+        width: 105px;
+        text-align: center;
+        display: block;
+    }
+    .active-link-button {
+      border-color: #FAD78B !important;
+      background-color: #FAD78B !important;
+      color: #333 !important;
+    }
+    .navbar .navbar-nav .nav-button .nav-link:hover, .navbar .navbar-nav .nav-button .nav-link.signup:hover {
+        border-color: #333;
+        background-color: #333;
+        color: #fff;
+    }
+    .navbar .navbar-nav .nav-button .nav-link.signup{
+        border-color: #F6CF65;
+        background-color: #F6CF65;
+        color: #333;
+    }
+}
+@media screen and (max-width:1250px) and (min-width: 992px){
+  .navbar .navbar-nav .nav-item{
+    padding:8px 7px 3px;
+    font-size: 13px;
+}
+.navbar .navbar-nav .nav-button .nav-link{
+  width: 90px;
+  height: 28px;
+  line-height: 27px;
+}
+}
+@media (max-width: 992px){
+    .navbar-toggler {
+        border-color: rgba(51,51,51,0.5);
+        padding:5px;
+    }
+    .navbar-expand-lg .navbar-nav .dropdown-menu{
+        box-shadow: none;
+        padding: 0 25px;
+        margin: 5px 0 !important;
+        background-color: #f2f2f2;
+    }
+    .navbar-collapse{
+        background-color: #f2f2f2;
+        border-radius: 10px;
+        margin-top: 15px;
+        -webkit-box-shadow:0px 0px 30px 0px rgba(0,0,0,0.45);
+        box-shadow:0px 0px 30px 0px rgba(0,0,0,0.45);
+        border-radius: 10px;
+        border:none;
+        padding:15px 25px;
+        margin-bottom: 15px;
+        overflow: auto;
+        height: 260px;
+    }
+    .bg-header.main-header .navbar-collapse{
+        box-shadow: none;
+    }
+    .navbar .navbar-nav .nav-item + .nav-item {
+        border-top: 1px solid rgba(112,112,112,0.35);
+    }
+
+    .navbar-expand-lg .collapse.show .navbar-nav .dropdown-menu {
+        margin: 18px 0;
+    }
+    .fill-btn{
+        background: none;
+        color: #333 !important;
+    }
+}
+
+@media (max-width: 767px){
+    .navbar-brand img{ width: 150px;}
+}

@@ -1,0 +1,35 @@
+<app-main-header></app-main-header>
+
+<!-- ============================================================== -->
+<!-- Main wrapper -->
+<!-- ============================================================== -->
+<!-- Main wrapper -->
+<div class="about-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center">
+        <h2 class="banner-title">{{pageHeading}}</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="static-content">
+  <div class="container">
+      <div class="row">
+        <p *ngIf="pageSlug=='privacy' || pageSlug=='terms-conditions'" [innerHTML]="pageContent">
+        </p>
+
+        <ul style="list-style-type:none" *ngIf="pageSlug=='faq'">
+          <li *ngFor="let faq of faqs;let i=index">
+            <section>
+              <p [innerHTML]="faq.question"></p>
+              <p [innerHTML]="faq.answer"></p>
+            </section>
+          </li>
+        </ul>
+      </div>
+  </div>
+</section>
+
+<app-main-footer></app-main-footer>

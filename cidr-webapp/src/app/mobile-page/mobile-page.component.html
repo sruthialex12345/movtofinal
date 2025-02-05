@@ -1,0 +1,44 @@
+<header class="main-header bg-header">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <a href="javascript:;" routerLink="/home" class="pull-left navbar-brand"><img src="../../assets/images/logo-circular-drive.svg" width="191" height="77" alt="circular drive logo" /></a>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+</header>
+
+
+<div class="about-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center">
+        <h2 class="banner-title">{{pageHeading}}</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="static-content">
+  <div class="container">
+      <div class="row">
+        <p class ="inner-content" *ngIf="pageSlug=='privacy' || pageSlug=='terms-conditions'" [innerHTML]="pageContent">
+        </p>
+
+        <ul style="list-style-type:none" *ngIf="pageSlug=='faq'">
+          <li *ngFor="let faq of faqs;let i=index">
+            <section>
+              <p [innerHTML]="faq.question"></p>
+              <p [innerHTML]="faq.answer"></p>
+            </section>
+          </li>
+        </ul>
+      </div>
+  </div>
+</section>
+

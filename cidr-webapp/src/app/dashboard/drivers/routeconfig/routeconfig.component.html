@@ -1,0 +1,41 @@
+<div class="row page-titles">
+  <div class="col-md-5 align-self-center">
+    <h4 class="text-themecolor">Driver Route Config</h4>
+  </div>
+  <div class="col-md-7 align-self-center text-right">
+    <div class="d-flex justify-content-end align-items-center">
+      <button type="submit" class="btn btn-success" (click)="updateItem()">Submit</button>
+      <button type="button" class="btn btn-inverse" routerLink="/dashboard/drivers">Back</button>      
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <!--  <h4 class="card-title">Map</h4>
+        1) custom route creation. Getting all waypoints in between path.
+        2) waypoints detail address check in document. agm-map.
+        3) configure route and terminals (route ).
+        4) map to be drawn with only points shown.
+        -->
+
+        <agm-map
+    [latitude]="lat"
+    [longitude]="lng"
+    [zoom]="zoom"
+    [disableDefaultUI]="false"
+    [zoomControl]="false">
+    <agm-direction
+    [origin]="origin"
+    [destination]="destination"
+    [waypoints]="waypoints"
+    [renderOptions]="renderOptions">
+    </agm-direction>
+  </agm-map>
+      </div>
+    </div>
+  </div>
+</div>
+
